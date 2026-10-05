@@ -9,8 +9,8 @@ import {
   SettingRow,
   useConfirm,
   InlineView,
-} from "@termix/plugin-sdk/ui";
-import { usePluginApi, useTranslation } from "@termix/plugin-sdk/frontend";
+} from "@termix-ssh/plugin-sdk/ui";
+import { usePluginApi, useTranslation } from "@termix-ssh/plugin-sdk/frontend";
 import { createLdapApi, type LdapProvider } from "./ldap-api";
 
 type Fields = {

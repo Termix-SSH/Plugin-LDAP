@@ -1,5 +1,5 @@
 import type { Request, Response, Router } from "express";
-import type { PluginContext } from "@termix/plugin-sdk/backend";
+import type { PluginContext } from "@termix-ssh/plugin-sdk/backend";
 import { identityProvider } from "./ldap.js";
 import type { ProviderStore } from "./providers.js";
 import { REQUIRED_FIELDS, type ProviderRow } from "./types.js";

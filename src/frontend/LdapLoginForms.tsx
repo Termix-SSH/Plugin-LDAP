@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { toast } from "sonner";
-import { Button, Input } from "@termix/plugin-sdk/ui";
+import { Button, Input } from "@termix-ssh/plugin-sdk/ui";
 import {
   useTranslation,
   type LoginMethodUIProps,
-} from "@termix/plugin-sdk/frontend";
+} from "@termix-ssh/plugin-sdk/frontend";
 
 const labelClass =
   "text-[10px] font-bold uppercase tracking-widest text-muted-foreground";

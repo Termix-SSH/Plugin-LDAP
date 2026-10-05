@@ -1,5 +1,5 @@
 import { and, asc, desc, eq } from "drizzle-orm";
-import type { PluginContext } from "@termix/plugin-sdk/backend";
+import type { PluginContext } from "@termix-ssh/plugin-sdk/backend";
 import type { LdapConfig, ProviderRow } from "./types.js";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */

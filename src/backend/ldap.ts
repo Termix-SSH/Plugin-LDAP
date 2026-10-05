@@ -10,7 +10,7 @@ import {
   type PluginContext,
   type PluginLoginRequest,
   type PluginVerifiedIdentity,
-} from "@termix/plugin-sdk/backend";
+} from "@termix-ssh/plugin-sdk/backend";
 import type { ProviderStore } from "./providers.js";
 import type { LdapConfig } from "./types.js";
 

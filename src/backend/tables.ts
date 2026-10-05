@@ -5,7 +5,7 @@ import {
   integer,
   text,
   timestamp,
-} from "@termix/plugin-sdk/db";
+} from "@termix-ssh/plugin-sdk/db";
 
 /**
  * LDAP directories. Rows from 2.8 are copied in from sso_providers by core's
