@@ -3,15 +3,12 @@ import { Pencil, Plus, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import {
   Button,
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
   FakeSwitch,
   Input,
   PasswordInput,
   SettingRow,
+  useConfirm,
+  InlineView,
 } from "@termix/plugin-sdk/ui";
 import { usePluginApi, useTranslation } from "@termix/plugin-sdk/frontend";
 import { createLdapApi, type LdapProvider } from "./ldap-api";
@@ -177,142 +174,138 @@ function ProviderDialog({
   );
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="flex flex-col gap-0 p-0 overflow-hidden w-[calc(100vw-2rem)] sm:max-w-xl max-h-[calc(100dvh-2rem)]">
-        <DialogHeader className="px-4 pt-4 pb-3 pr-10 border-b border-border shrink-0">
-          <DialogTitle className="text-lg font-bold">
-            {provider ? t("providers.edit") : t("providers.add")}
-          </DialogTitle>
-          <DialogDescription className="text-xs text-muted-foreground">
-            {t("providers.dialogDesc")}{" "}
-            <a
-              href="https://docs.termix.site/features/authentication/ldap"
-              target="_blank"
-              rel="noreferrer"
-              className="text-accent-brand hover:underline"
+    <InlineView
+      open={open}
+      onOpenChange={onOpenChange}
+      title={provider ? t("providers.edit") : t("providers.add")}
+    >
+      <p className="text-xs text-muted-foreground">
+        {t("providers.dialogDesc")}{" "}
+        <a
+          href="https://docs.termix.site/features/authentication/ldap"
+          target="_blank"
+          rel="noreferrer"
+          className="text-accent-brand hover:underline"
+        >
+          {t("providers.docsLink")}
+        </a>
+      </p>
+      <div className="flex-1 min-h-0 overflow-y-auto px-4 py-4 flex flex-col gap-6">
+        <Section title={t("providers.sectionGeneral")}>
+          <Field label={t("providers.name")} required>
+            <Input
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder={t("providers.namePlaceholder")}
+            />
+          </Field>
+          <div className="border border-border px-3">
+            <SettingRow
+              label={t("providers.enabled")}
+              description={t("providers.enabledDesc")}
             >
-              {t("providers.docsLink")}
-            </a>
-          </DialogDescription>
-        </DialogHeader>
+              <FakeSwitch checked={enabled} onChange={setEnabled} />
+            </SettingRow>
+          </div>
+        </Section>
 
-        <div className="flex-1 min-h-0 overflow-y-auto px-4 py-4 flex flex-col gap-6">
-          <Section title={t("providers.sectionGeneral")}>
-            <Field label={t("providers.name")} required>
-              <Input
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder={t("providers.namePlaceholder")}
+        <Section title={t("providers.sectionConnection")}>
+          <div className="grid grid-cols-1 sm:grid-cols-[1fr_8rem] gap-3">
+            {text("host", t("fields.host"), "ldap.example.com", true)}
+            {text("port", t("fields.port"), "389", true)}
+          </div>
+          <div className="border border-border px-3">
+            <SettingRow
+              label={t("fields.useTls")}
+              description={t("fields.useTlsDesc")}
+            >
+              <FakeSwitch
+                checked={fields.useTLS}
+                onChange={(useTLS) =>
+                  setFields((prev) => ({ ...prev, useTLS }))
+                }
+              />
+            </SettingRow>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {text(
+              "bindDN",
+              t("fields.bindDn"),
+              "cn=admin,dc=example,dc=com",
+              true,
+            )}
+            <Field
+              label={t("fields.bindPassword")}
+              required={!provider?.hasBindPassword}
+              hint={
+                provider?.hasBindPassword ? t("fields.secretKeep") : undefined
+              }
+            >
+              <PasswordInput
+                value={fields.bindPassword}
+                onChange={(e) => set("bindPassword")(e.target.value)}
               />
             </Field>
-            <div className="border border-border px-3">
-              <SettingRow
-                label={t("providers.enabled")}
-                description={t("providers.enabledDesc")}
-              >
-                <FakeSwitch checked={enabled} onChange={setEnabled} />
-              </SettingRow>
-            </div>
-          </Section>
+          </div>
+        </Section>
 
-          <Section title={t("providers.sectionConnection")}>
-            <div className="grid grid-cols-1 sm:grid-cols-[1fr_8rem] gap-3">
-              {text("host", t("fields.host"), "ldap.example.com", true)}
-              {text("port", t("fields.port"), "389", true)}
-            </div>
-            <div className="border border-border px-3">
-              <SettingRow
-                label={t("fields.useTls")}
-                description={t("fields.useTlsDesc")}
-              >
-                <FakeSwitch
-                  checked={fields.useTLS}
-                  onChange={(useTLS) =>
-                    setFields((prev) => ({ ...prev, useTLS }))
-                  }
-                />
-              </SettingRow>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {text(
-                "bindDN",
-                t("fields.bindDn"),
-                "cn=admin,dc=example,dc=com",
-                true,
-              )}
-              <Field
-                label={t("fields.bindPassword")}
-                required={!provider?.hasBindPassword}
-                hint={
-                  provider?.hasBindPassword ? t("fields.secretKeep") : undefined
-                }
-              >
-                <PasswordInput
-                  value={fields.bindPassword}
-                  onChange={(e) => set("bindPassword")(e.target.value)}
-                />
-              </Field>
-            </div>
-          </Section>
-
-          <Section title={t("providers.sectionUsers")}>
+        <Section title={t("providers.sectionUsers")}>
+          {text(
+            "userSearchBase",
+            t("fields.userSearchBase"),
+            "ou=users,dc=example,dc=com",
+            true,
+          )}
+          {text(
+            "userSearchFilter",
+            t("fields.userSearchFilter"),
+            "(uid={{username}})",
+            true,
+          )}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {text("usernameAttribute", t("fields.usernameAttr"), "uid", true)}
             {text(
-              "userSearchBase",
-              t("fields.userSearchBase"),
-              "ou=users,dc=example,dc=com",
+              "displayNameAttribute",
+              t("fields.displayNameAttr"),
+              "cn",
               true,
             )}
-            {text(
-              "userSearchFilter",
-              t("fields.userSearchFilter"),
-              "(uid={{username}})",
-              true,
-            )}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {text("usernameAttribute", t("fields.usernameAttr"), "uid", true)}
-              {text(
-                "displayNameAttribute",
-                t("fields.displayNameAttr"),
-                "cn",
-                true,
-              )}
-            </div>
-          </Section>
+          </div>
+        </Section>
 
-          <Section title={t("providers.sectionAccess")}>
-            {text(
-              "groupSearchBase",
-              t("fields.groupSearchBase"),
-              "ou=groups,dc=example,dc=com",
-            )}
-            {text(
-              "adminGroup",
-              t("fields.adminGroup"),
-              "cn=admins,ou=groups,dc=example,dc=com",
-            )}
-            {text(
-              "allowedUsers",
-              t("fields.allowedUsers"),
-              "user1,user2,@domain.com",
-            )}
-          </Section>
-        </div>
+        <Section title={t("providers.sectionAccess")}>
+          {text(
+            "groupSearchBase",
+            t("fields.groupSearchBase"),
+            "ou=groups,dc=example,dc=com",
+          )}
+          {text(
+            "adminGroup",
+            t("fields.adminGroup"),
+            "cn=admins,ou=groups,dc=example,dc=com",
+          )}
+          {text(
+            "allowedUsers",
+            t("fields.allowedUsers"),
+            "user1,user2,@domain.com",
+          )}
+        </Section>
+      </div>
 
-        <div className="flex items-center justify-end gap-2 px-4 py-3 border-t border-border shrink-0">
-          <Button variant="ghost" onClick={() => onOpenChange(false)}>
-            {t("providers.cancel")}
-          </Button>
-          <Button
-            variant="outline"
-            className="border-accent-brand/40 text-accent-brand hover:bg-accent-brand/10 hover:text-accent-brand"
-            onClick={save}
-            disabled={saving}
-          >
-            {saving ? t("providers.saving") : t("providers.save")}
-          </Button>
-        </div>
-      </DialogContent>
-    </Dialog>
+      <div className="flex items-center justify-end gap-2 px-4 py-3 border-t border-border shrink-0">
+        <Button variant="ghost" onClick={() => onOpenChange(false)}>
+          {t("providers.cancel")}
+        </Button>
+        <Button
+          variant="outline"
+          className="border-accent-brand/40 text-accent-brand hover:bg-accent-brand/10 hover:text-accent-brand"
+          onClick={save}
+          disabled={saving}
+        >
+          {saving ? t("providers.saving") : t("providers.save")}
+        </Button>
+      </div>
+    </InlineView>
   );
 }
 
@@ -322,6 +315,7 @@ function ProviderDialog({
  */
 export function ProvidersSetting() {
   const { t } = useTranslation();
+  const confirm = useConfirm();
   const api = createLdapApi(usePluginApi());
   const [providers, setProviders] = useState<LdapProvider[] | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -352,7 +346,11 @@ export function ProvidersSetting() {
   }
 
   async function remove(provider: LdapProvider) {
-    if (!window.confirm(t("providers.deleteConfirm"))) return;
+    const ok = await confirm({
+      title: t("providers.deleteConfirm"),
+      confirmLabel: t("common.delete"),
+    });
+    if (!ok) return;
     try {
       await api.remove(provider.id);
       toast.success(t("providers.deleted"));
