@@ -16,7 +16,7 @@ import type { LdapConfig } from "./types.js";
 
 export const METHOD_ID = "ldap";
 
-export function ldapEscapeFilter(value: string): string {
+function ldapEscapeFilter(value: string): string {
   return value.replace(
     /[\\*()\x00]/g,
     (c) => `\\${c.charCodeAt(0).toString(16).padStart(2, "0")}`,
