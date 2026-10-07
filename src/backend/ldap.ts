@@ -43,6 +43,17 @@ function bind(client: ldap.Client, dn: string, password: string) {
   });
 }
 
+/**
+ * ldapjs re-serializes a search base with non-ASCII characters hex-escaped,
+ * which Active Directory rejects. Hand it a parsed DN that still prints as
+ * the text the admin entered.
+ */
+export function searchBaseDn(base: string): ldap.DN {
+  const dn = ldap.parseDN(base);
+  Object.defineProperty(dn, "toString", { value: () => base });
+  return dn;
+}
+
 function search(
   client: ldap.Client,
   base: string,
@@ -51,12 +62,16 @@ function search(
 ): Promise<ldap.SearchEntry[]> {
   return new Promise((resolve, reject) => {
     const entries: ldap.SearchEntry[] = [];
-    client.search(base, { filter, attributes, scope: "sub" }, (err, res) => {
-      if (err) return reject(err);
-      res.on("searchEntry", (entry) => entries.push(entry));
-      res.on("error", reject);
-      res.on("end", () => resolve(entries));
-    });
+    client.search(
+      searchBaseDn(base),
+      { filter, attributes, scope: "sub" },
+      (err, res) => {
+        if (err) return reject(err);
+        res.on("searchEntry", (entry) => entries.push(entry));
+        res.on("error", reject);
+        res.on("end", () => resolve(entries));
+      },
+    );
   });
 }
 

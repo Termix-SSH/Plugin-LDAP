@@ -26,7 +26,7 @@ vi.mock("ldapjs", async () => {
         cb(new Error("invalid credentials"));
       },
       search: (
-        base: string,
+        base: unknown,
         options: { filter: string; attributes: string[] },
         cb: (err: Error | null, res: unknown) => void,
       ) => {
@@ -37,7 +37,7 @@ vi.mock("ldapjs", async () => {
           },
         });
         queueMicrotask(() => {
-          if (base === "ou=groups") {
+          if (String(base) === "ou=groups") {
             for (const dn of directory.adminDns) {
               if (options.filter.includes(dn)) {
                 listeners.searchEntry?.({
@@ -67,7 +67,7 @@ vi.mock("ldapjs", async () => {
       unbind: () => {},
     };
   }
-  return { default: { createClient }, createClient };
+  return { default: { ...ldap, createClient }, createClient };
 });
 
 const CONFIG = {
@@ -326,5 +326,18 @@ describe("capabilities", () => {
       body: { name: "Corp LDAP", config: CONFIG },
     });
     expect(response.status).toBe(500);
+  });
+});
+
+describe("searchBaseDn", () => {
+  it("keeps a Unicode search base as entered", async () => {
+    const { searchBaseDn } = await import("../../src/backend/ldap.js");
+    const { default: ldap } =
+      await vi.importActual<typeof import("ldapjs")>("ldapjs");
+    const base = "OU=Zespół,DC=example,DC=com";
+    const dn = searchBaseDn(base);
+    expect(String(dn)).toBe(base);
+    expect(Object.prototype.toString.call(dn)).toBe("[object LdapDn]");
+    expect(ldap.parseDN(base).toString()).not.toBe(base);
   });
 });
