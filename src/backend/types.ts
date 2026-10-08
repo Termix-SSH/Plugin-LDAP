@@ -2,6 +2,10 @@ export interface LdapConfig {
   host: string;
   port: number;
   useTLS: boolean;
+  /** PEM CA certificate(s) to trust for LDAPS, on top of the system store. */
+  tlsCaCert?: string;
+  /** Skips certificate checks. Only for a lab directory you trust. */
+  tlsSkipVerify?: boolean;
   bindDN: string;
   bindPassword: string;
   userSearchBase: string;

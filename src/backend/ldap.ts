@@ -28,13 +28,22 @@ export function identityProvider(providerId: number): string {
   return `ldap:${providerId}`;
 }
 
+/** TLS settings for LDAPS: verified by default, against an optional CA. */
+export function ldapTlsOptions(
+  config: LdapConfig,
+): { rejectUnauthorized: boolean; ca?: string[] } | undefined {
+  if (!config.useTLS) return undefined;
+  const ca = config.tlsCaCert?.trim();
+  return {
+    rejectUnauthorized: !config.tlsSkipVerify,
+    ...(ca ? { ca: [ca] } : {}),
+  };
+}
+
 function createClient(config: LdapConfig): ldap.Client {
   const useTLS = !!config.useTLS;
   const url = `${useTLS ? "ldaps" : "ldap"}://${config.host}:${config.port || 389}`;
-  return ldap.createClient({
-    url,
-    tlsOptions: useTLS ? { rejectUnauthorized: false } : undefined,
-  });
+  return ldap.createClient({ url, tlsOptions: ldapTlsOptions(config) });
 }
 
 function bind(client: ldap.Client, dn: string, password: string) {

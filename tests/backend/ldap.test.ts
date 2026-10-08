@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { startServer, type TestServer } from "./helpers.js";
+import { ldapTlsOptions } from "../../src/backend/ldap.js";
 
 const directory = vi.hoisted(() => ({
   users: {} as Record<
@@ -339,5 +340,32 @@ describe("searchBaseDn", () => {
     expect(String(dn)).toBe(base);
     expect(Object.prototype.toString.call(dn)).toBe("[object LdapDn]");
     expect(ldap.parseDN(base).toString()).not.toBe(base);
+  });
+});
+
+describe("ldapTlsOptions", () => {
+  const base = { useTLS: true } as Parameters<typeof ldapTlsOptions>[0];
+
+  it("verifies the server certificate by default", () => {
+    expect(ldapTlsOptions(base)).toEqual({ rejectUnauthorized: true });
+  });
+
+  it("trusts a pasted CA", () => {
+    expect(
+      ldapTlsOptions({ ...base, tlsCaCert: " -----BEGIN CERTIFICATE----- " }),
+    ).toEqual({
+      rejectUnauthorized: true,
+      ca: ["-----BEGIN CERTIFICATE-----"],
+    });
+  });
+
+  it("only skips the check when asked to", () => {
+    expect(ldapTlsOptions({ ...base, tlsSkipVerify: true })).toEqual({
+      rejectUnauthorized: false,
+    });
+  });
+
+  it("has no TLS options for plain LDAP", () => {
+    expect(ldapTlsOptions({ ...base, useTLS: false })).toBeUndefined();
   });
 });

@@ -7,6 +7,7 @@ import {
   Input,
   PasswordInput,
   SettingRow,
+  Textarea,
   useConfirm,
   InlineView,
 } from "@termix-ssh/plugin-sdk/ui";
@@ -17,6 +18,8 @@ type Fields = {
   host: string;
   port: string;
   useTLS: boolean;
+  tlsCaCert: string;
+  tlsSkipVerify: boolean;
   bindDN: string;
   bindPassword: string;
   userSearchBase: string;
@@ -32,6 +35,8 @@ const EMPTY_FIELDS: Fields = {
   host: "",
   port: "389",
   useTLS: false,
+  tlsCaCert: "",
+  tlsSkipVerify: false,
   bindDN: "",
   bindPassword: "",
   userSearchBase: "",
@@ -113,7 +118,8 @@ function ProviderDialog({
     const next = { ...EMPTY_FIELDS };
     for (const key of Object.keys(next) as Array<keyof Fields>) {
       const value = config[key];
-      if (key === "useTLS") next.useTLS = value === true;
+      if (key === "useTLS" || key === "tlsSkipVerify")
+        next[key] = value === true;
       else if (key === "port" && value !== undefined) next.port = String(value);
       else if (typeof value === "string") next[key] = value as never;
     }
@@ -121,8 +127,10 @@ function ProviderDialog({
     setFields(next);
   }, [open, provider]);
 
-  const set = (key: Exclude<keyof Fields, "useTLS">) => (value: string) =>
-    setFields((prev) => ({ ...prev, [key]: value }));
+  const set =
+    (key: Exclude<keyof Fields, "useTLS" | "tlsSkipVerify">) =>
+    (value: string) =>
+      setFields((prev) => ({ ...prev, [key]: value }));
 
   async function save() {
     if (!name.trim()) {
@@ -133,6 +141,8 @@ function ProviderDialog({
       host: fields.host.trim(),
       port: Number.parseInt(fields.port, 10) || 389,
       useTLS: fields.useTLS,
+      tlsCaCert: fields.tlsCaCert.trim() || undefined,
+      tlsSkipVerify: fields.tlsSkipVerify,
       bindDN: fields.bindDN.trim(),
       userSearchBase: fields.userSearchBase.trim(),
       userSearchFilter: fields.userSearchFilter.trim(),
@@ -159,7 +169,10 @@ function ProviderDialog({
   }
 
   const text = (
-    key: Exclude<keyof Fields, "useTLS" | "bindPassword">,
+    key: Exclude<
+      keyof Fields,
+      "useTLS" | "tlsSkipVerify" | "tlsCaCert" | "bindPassword"
+    >,
     label: string,
     placeholder: string,
     required = false,
@@ -226,7 +239,34 @@ function ProviderDialog({
                 }
               />
             </SettingRow>
+            {fields.useTLS && (
+              <SettingRow
+                label={t("fields.tlsSkipVerify")}
+                description={t("fields.tlsSkipVerifyDesc")}
+              >
+                <FakeSwitch
+                  checked={fields.tlsSkipVerify}
+                  onChange={(tlsSkipVerify) =>
+                    setFields((prev) => ({ ...prev, tlsSkipVerify }))
+                  }
+                />
+              </SettingRow>
+            )}
           </div>
+          {fields.useTLS && !fields.tlsSkipVerify && (
+            <Field
+              label={t("fields.tlsCaCert")}
+              hint={t("fields.tlsCaCertDesc")}
+            >
+              <Textarea
+                value={fields.tlsCaCert}
+                onChange={(e) => set("tlsCaCert")(e.target.value)}
+                placeholder="-----BEGIN CERTIFICATE-----"
+                rows={4}
+                className="font-mono text-xs"
+              />
+            </Field>
+          )}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {text(
               "bindDN",
