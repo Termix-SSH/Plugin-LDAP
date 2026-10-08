@@ -14,6 +14,8 @@
 
 LDAP lets people sign in to Termix with their LDAP or Active Directory username and password.
 
+Read the [docs](https://docs.termix.site/plugins/ldap) to set it up and use it.
+
 <br />
 
 ## Features

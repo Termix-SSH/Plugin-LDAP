@@ -13,6 +13,7 @@ import {
 } from "@termix-ssh/plugin-sdk/ui";
 import { usePluginApi, useTranslation } from "@termix-ssh/plugin-sdk/frontend";
 import { createLdapApi, type LdapProvider } from "./ldap-api";
+import { docsUrl } from "./docs";
 
 type Fields = {
   host: string;
@@ -195,7 +196,7 @@ function ProviderDialog({
       <p className="text-xs text-muted-foreground">
         {t("providers.dialogDesc")}{" "}
         <a
-          href="https://docs.termix.site/features/authentication/ldap"
+          href={docsUrl()}
           target="_blank"
           rel="noreferrer"
           className="text-accent-brand hover:underline"

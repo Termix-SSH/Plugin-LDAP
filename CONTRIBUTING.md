@@ -10,12 +10,6 @@ npm run validate   # check manifest.json
 npm run format     # format the code with Prettier
 ```
 
-## Settings
+## Docs
 
-### Admin
-
-- **Directories:** the LDAP servers people can sign in with. Each has a display name, host and port, TLS, bind DN and password, user and group search settings, an admin group and an allowed users list. The bind password is stored encrypted
-
-## Permissions
-
-- `ldap.manage`: add, edit and remove LDAP directories. Only admins have it by default.
+The docs for this plugin are in [docs/](docs/) and are published at https://docs.termix.site/plugins/ldap. Settings, permissions, services, environment variables and the API reference are made from `manifest.json` and the `@openapi` comments in the code, so keep those up to date instead of writing them by hand. See [writing docs](https://docs.termix.site/develop/docs).
