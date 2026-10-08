@@ -1,11 +1,5 @@
 # Changelog
 
-## Unreleased
-
-### Fixed
-
-- Sign-in works when the user or group search base has non-ASCII characters, such as Polish or Cyrillic OU names
-
 ## 1.0.0
 
 ### Added
