@@ -1,6 +1,6 @@
 {
   "loginWithLdap": "Sign in with LDAP",
-  "loginWithProvider": "Login with {{name}}",
+  "loginWithProvider": "Sign in with {{name}}",
   "loading": "Loading...",
   "requiredField": "This field is required",
   "username": "LDAP Username",
@@ -18,7 +18,7 @@
     "add": "Add Directory",
     "edit": "Edit Directory",
     "delete": "Delete Directory",
-    "deleteConfirm": "Delete this directory? Users who sign in with it will not be able to log in.",
+    "deleteConfirm": "Delete this directory? Its users will not be able to sign in with it.",
     "name": "Display Name",
     "namePlaceholder": "Company directory",
     "nameRequired": "A display name is required",

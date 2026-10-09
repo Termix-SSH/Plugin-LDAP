@@ -1,6 +1,10 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { startServer, type TestServer } from "./helpers.js";
-import { ldapTlsOptions } from "../../src/backend/ldap.js";
+import {
+  ldapClientOptions,
+  ldapTlsOptions,
+  normalizeDn,
+} from "../../src/backend/ldap.js";
 
 const directory = vi.hoisted(() => ({
   users: {} as Record<
@@ -10,6 +14,7 @@ const directory = vi.hoisted(() => ({
   adminDns: [] as string[],
   servicePassword: "svc",
   binds: [] as string[],
+  matchesPerSearch: 1,
 }));
 
 vi.mock("ldapjs", async () => {
@@ -50,7 +55,7 @@ vi.mock("ldapjs", async () => {
           } else {
             const match = /uid=([^)]+)/.exec(options.filter);
             const user = match ? directory.users[match[1]] : undefined;
-            if (user) {
+            for (let i = 0; user && i < directory.matchesPerSearch; i++) {
               listeners.searchEntry?.({
                 dn: ldap.parseDN(user.dn),
                 attributes: Object.entries(user.attrs)
@@ -66,6 +71,7 @@ vi.mock("ldapjs", async () => {
         });
       },
       unbind: () => {},
+      on: () => {},
     };
   }
   return { default: { ...ldap, createClient }, createClient };
@@ -97,6 +103,7 @@ beforeEach(() => {
   };
   directory.adminDns = [];
   directory.binds = [];
+  directory.matchesPerSearch = 1;
 });
 
 afterEach(async () => {
@@ -171,6 +178,20 @@ describe("LDAP sign-in", () => {
     expect(directory.binds).toEqual(["cn=service", "uid=bob,ou=people"]);
   });
 
+  it("matches an admin group DN without case or spacing", async () => {
+    const { s, id } = await withDirectory();
+    const updated = await s.request("PUT", `/providers/${id}`, {
+      body: { config: { adminGroup: "CN=Admins, OU=Groups" } },
+    });
+    expect(updated.status).toBe(200);
+    directory.adminDns = ["uid=bob,ou=people"];
+    const identity = await verify(s, String(id), {
+      username: "bob",
+      password: "hunter2",
+    });
+    expect(identity).toMatchObject({ isAdmin: true });
+  });
+
   it("is not an admin when the directory says so", async () => {
     const { s, id } = await withDirectory();
     const identity = await verify(s, String(id), {
@@ -207,6 +228,15 @@ describe("LDAP sign-in", () => {
     await expect(
       verify(s, String(id), { username: "bob", password: "hunter2" }),
     ).rejects.toMatchObject({ status: 429 });
+  });
+
+  it("refuses a filter that matches more than one entry", async () => {
+    const { s, id } = await withDirectory();
+    directory.matchesPerSearch = 2;
+    await expect(
+      verify(s, String(id), { username: "bob", password: "hunter2" }),
+    ).rejects.toMatchObject({ status: 401 });
+    expect(directory.binds).toEqual(["cn=service"]);
   });
 
   it("escapes the username in the search filter", async () => {
@@ -367,5 +397,41 @@ describe("ldapTlsOptions", () => {
 
   it("has no TLS options for plain LDAP", () => {
     expect(ldapTlsOptions({ ...base, useTLS: false })).toBeUndefined();
+  });
+});
+
+describe("ldapClientOptions", () => {
+  const base = { host: "ldap.example" } as Parameters<
+    typeof ldapClientOptions
+  >[0];
+
+  it("defaults the port to 389, or 636 for LDAPS", () => {
+    expect(ldapClientOptions(base).url).toBe("ldap://ldap.example:389");
+    expect(ldapClientOptions({ ...base, useTLS: true }).url).toBe(
+      "ldaps://ldap.example:636",
+    );
+    expect(ldapClientOptions({ ...base, port: 3269, useTLS: true }).url).toBe(
+      "ldaps://ldap.example:3269",
+    );
+  });
+
+  it("sets timeouts so an unreachable directory can't hang a login", () => {
+    const options = ldapClientOptions(base);
+    expect(options.connectTimeout).toBeGreaterThan(0);
+    expect(options.timeout).toBeGreaterThan(0);
+  });
+});
+
+describe("normalizeDn", () => {
+  it("ignores case and spaces around separators", () => {
+    expect(normalizeDn("CN=Admins, OU=Groups ,DC=Example,DC=com")).toBe(
+      normalizeDn("cn=admins,ou=groups,dc=example,dc=com"),
+    );
+  });
+
+  it("keeps escaped commas inside a value", () => {
+    expect(normalizeDn(String.raw`CN=Ops\, Team,DC=x`)).toBe(
+      String.raw`cn=ops\, team,dc=x`,
+    );
   });
 });

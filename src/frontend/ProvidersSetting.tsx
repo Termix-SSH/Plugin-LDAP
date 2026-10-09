@@ -138,20 +138,22 @@ function ProviderDialog({
       toast.error(t("providers.nameRequired"));
       return;
     }
+    // Optional fields are sent empty, not left out, so clearing one clears
+    // it on the server.
     const config: Record<string, unknown> = {
       host: fields.host.trim(),
       port: Number.parseInt(fields.port, 10) || 389,
       useTLS: fields.useTLS,
-      tlsCaCert: fields.tlsCaCert.trim() || undefined,
+      tlsCaCert: fields.tlsCaCert.trim(),
       tlsSkipVerify: fields.tlsSkipVerify,
       bindDN: fields.bindDN.trim(),
       userSearchBase: fields.userSearchBase.trim(),
       userSearchFilter: fields.userSearchFilter.trim(),
       usernameAttribute: fields.usernameAttribute.trim() || "uid",
       displayNameAttribute: fields.displayNameAttribute.trim() || "cn",
-      groupSearchBase: fields.groupSearchBase.trim() || undefined,
-      adminGroup: fields.adminGroup.trim() || undefined,
-      allowedUsers: fields.allowedUsers.trim() || undefined,
+      groupSearchBase: fields.groupSearchBase.trim(),
+      adminGroup: fields.adminGroup.trim(),
+      allowedUsers: fields.allowedUsers.trim(),
     };
     if (fields.bindPassword) config.bindPassword = fields.bindPassword;
     setSaving(true);

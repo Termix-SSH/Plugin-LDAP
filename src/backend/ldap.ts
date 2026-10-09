@@ -23,6 +23,23 @@ function ldapEscapeFilter(value: string): string {
   );
 }
 
+/**
+ * A DN for comparing: LDAP matches DNs without case, and directories differ
+ * on spaces around the commas and equals signs.
+ */
+export function normalizeDn(dn: string): string {
+  return dn
+    .split(/(?<!\\),/)
+    .map((rdn) =>
+      rdn
+        .split(/(?<!\\)=/)
+        .map((part) => part.trim())
+        .join("="),
+    )
+    .join(",")
+    .toLowerCase();
+}
+
 /** The provider id identities from this directory are stored under. */
 export function identityProvider(providerId: number): string {
   return `ldap:${providerId}`;
@@ -40,10 +57,29 @@ export function ldapTlsOptions(
   };
 }
 
-function createClient(config: LdapConfig): ldap.Client {
+const CONNECT_TIMEOUT_MS = 10_000;
+const OPERATION_TIMEOUT_MS = 15_000;
+
+/** Options for a client to this directory, with timeouts so a login can't hang. */
+export function ldapClientOptions(config: LdapConfig): ldap.ClientOptions {
   const useTLS = !!config.useTLS;
-  const url = `${useTLS ? "ldaps" : "ldap"}://${config.host}:${config.port || 389}`;
-  return ldap.createClient({ url, tlsOptions: ldapTlsOptions(config) });
+  const port = config.port || (useTLS ? 636 : 389);
+  return {
+    url: `${useTLS ? "ldaps" : "ldap"}://${config.host}:${port}`,
+    tlsOptions: ldapTlsOptions(config),
+    connectTimeout: CONNECT_TIMEOUT_MS,
+    timeout: OPERATION_TIMEOUT_MS,
+  };
+}
+
+function createClient(config: LdapConfig, log: PluginContext["log"]) {
+  const client = ldap.createClient(ldapClientOptions(config));
+  // Connection failures also reach the pending bind, but ldapjs emits them
+  // again as "error" and throws when nothing listens.
+  client.on("error", (error: Error) => {
+    log.warn(`LDAP connection to ${config.host} failed: ${error.message}`);
+  });
+  return client;
 }
 
 function bind(client: ldap.Client, dn: string, password: string) {
@@ -148,7 +184,7 @@ export function createLdapLogin(ctx: PluginContext, store: ProviderStore) {
       return new LoginMethodError("Invalid username or password", 401);
     };
 
-    const serviceClient = createClient(config);
+    const serviceClient = createClient(config, ctx.log);
     try {
       await bind(serviceClient, config.bindDN, config.bindPassword);
 
@@ -169,6 +205,10 @@ export function createLdapLogin(ctx: PluginContext, store: ProviderStore) {
         ],
       );
       if (entries.length === 0) throw await refuse("user not found");
+      // Taking the first of several matches could sign in the wrong person.
+      if (entries.length > 1) {
+        throw await refuse(`search filter matched ${entries.length} entries`);
+      }
 
       const userEntry = entries[0];
       // AD supplies its DN as an attribute; avoid re-serializing it through ldapjs.
@@ -181,7 +221,7 @@ export function createLdapLogin(ctx: PluginContext, store: ProviderStore) {
       const email =
         firstValue(userEntry, "mail") || firstValue(userEntry, "email") || "";
 
-      const userClient = createClient(config);
+      const userClient = createClient(config, ctx.log);
       try {
         await bind(userClient, userDN, password);
       } catch {
@@ -200,10 +240,11 @@ export function createLdapLogin(ctx: PluginContext, store: ProviderStore) {
             `(member=${ldapEscapeFilter(userDN)})`,
             ["cn", "dn"],
           );
+          const wanted = normalizeDn(config.adminGroup);
           isAdmin = groups.some(
             (group) =>
               firstValue(group, "cn") === config.adminGroup ||
-              group.dn.toString() === config.adminGroup,
+              normalizeDn(group.dn.toString()) === wanted,
           );
         } catch (error) {
           ctx.log.warn(`LDAP group check failed: ${String(error)}`);

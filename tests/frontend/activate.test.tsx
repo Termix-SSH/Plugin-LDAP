@@ -32,7 +32,7 @@ describe(`${manifest.id} activate`, () => {
       instances: [{ id: "4", label: "Corp" }],
       submit,
     });
-    fireEvent.click(screen.getByText("Login with Corp"));
+    fireEvent.click(screen.getByText("Sign in with Corp"));
     fireEvent.change(screen.getByLabelText(locales.username), {
       target: { value: " bob " },
     });
@@ -55,7 +55,7 @@ describe(`${manifest.id} activate`, () => {
       instances: [{ id: "4", label: "Corp" }],
       submit,
     });
-    fireEvent.click(screen.getByText("Login with Corp"));
+    fireEvent.click(screen.getByText("Sign in with Corp"));
     fireEvent.click(screen.getByText(locales.signIn));
     expect(submit).not.toHaveBeenCalled();
   });
@@ -83,6 +83,43 @@ describe(`${manifest.id} activate`, () => {
     rendered.renderSettingsComponent("providers");
     expect(await screen.findByText("Corp LDAP")).toBeTruthy();
     expect(get).toHaveBeenCalledWith("/providers");
+  });
+
+  it("sends a cleared admin group so it is cleared on the server", async () => {
+    const get = vi.fn(async () => ({
+      data: {
+        providers: [
+          {
+            id: 4,
+            name: "Corp LDAP",
+            enabled: true,
+            displayOrder: 0,
+            config: { host: "ldap.example", adminGroup: "admins" },
+            hasBindPassword: true,
+          },
+        ],
+      },
+    }));
+    const put = vi.fn(async () => ({ data: {} }));
+    rendered = await renderWithApp(plugin, {
+      manifest,
+      locales,
+      api: { get, put } as never,
+    });
+    rendered.renderSettingsComponent("providers");
+    fireEvent.click(await screen.findByTitle(locales.providers.edit));
+    fireEvent.change(await screen.findByDisplayValue("admins"), {
+      target: { value: "" },
+    });
+    fireEvent.click(screen.getByText(locales.providers.save));
+    await waitFor(() => expect(put).toHaveBeenCalled());
+    const [path, body] = put.mock.calls[0] as unknown as [
+      string,
+      { config: Record<string, unknown> },
+    ];
+    expect(path).toBe("/providers/4");
+    expect(body.config.adminGroup).toBe("");
+    expect(body.config).not.toHaveProperty("bindPassword");
   });
 
   it("removes everything on deactivate", async () => {
