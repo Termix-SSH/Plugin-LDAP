@@ -26,7 +26,6 @@ type Fields = {
   userSearchBase: string;
   userSearchFilter: string;
   usernameAttribute: string;
-  displayNameAttribute: string;
   groupSearchBase: string;
   adminGroup: string;
   allowedUsers: string;
@@ -43,7 +42,6 @@ const EMPTY_FIELDS: Fields = {
   userSearchBase: "",
   userSearchFilter: "(uid={{username}})",
   usernameAttribute: "uid",
-  displayNameAttribute: "cn",
   groupSearchBase: "",
   adminGroup: "",
   allowedUsers: "",
@@ -150,7 +148,6 @@ function ProviderDialog({
       userSearchBase: fields.userSearchBase.trim(),
       userSearchFilter: fields.userSearchFilter.trim(),
       usernameAttribute: fields.usernameAttribute.trim() || "uid",
-      displayNameAttribute: fields.displayNameAttribute.trim() || "cn",
       groupSearchBase: fields.groupSearchBase.trim(),
       adminGroup: fields.adminGroup.trim(),
       allowedUsers: fields.allowedUsers.trim(),
@@ -305,15 +302,7 @@ function ProviderDialog({
             "(uid={{username}})",
             true,
           )}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {text("usernameAttribute", t("fields.usernameAttr"), "uid", true)}
-            {text(
-              "displayNameAttribute",
-              t("fields.displayNameAttr"),
-              "cn",
-              true,
-            )}
-          </div>
+          {text("usernameAttribute", t("fields.usernameAttr"), "uid", true)}
         </Section>
 
         <Section title={t("providers.sectionAccess")}>

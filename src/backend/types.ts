@@ -11,7 +11,6 @@ export interface LdapConfig {
   userSearchBase: string;
   userSearchFilter: string;
   usernameAttribute: string;
-  displayNameAttribute: string;
   groupSearchBase?: string;
   adminGroup?: string;
   allowedUsers?: string;

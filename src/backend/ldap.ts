@@ -198,7 +198,6 @@ export function createLdapLogin(ctx: PluginContext, store: ProviderStore) {
         filter,
         [
           config.usernameAttribute || "uid",
-          config.displayNameAttribute || "cn",
           "mail",
           "email",
           "distinguishedName",
@@ -216,8 +215,6 @@ export function createLdapLogin(ctx: PluginContext, store: ProviderStore) {
         firstValue(userEntry, "distinguishedName") || userEntry.dn.toString();
       const uid =
         firstValue(userEntry, config.usernameAttribute || "uid") || username;
-      const displayName =
-        firstValue(userEntry, config.displayNameAttribute || "cn") || username;
       const email =
         firstValue(userEntry, "mail") || firstValue(userEntry, "email") || "";
 
@@ -256,7 +253,8 @@ export function createLdapLogin(ctx: PluginContext, store: ProviderStore) {
         provider: identityProvider(providerId),
         subject: uid,
         email: email || null,
-        name: displayName,
+        // Termix accounts have one name, so it is the login name.
+        name: uid,
         isAdmin,
         allowedUsers: config.allowedUsers ?? null,
         legacy: {
