@@ -1,0 +1,63 @@
+{
+  "loginWithLdap": "Pieteikties ar LDAP",
+  "loginWithProvider": "Pieteikties ar {{name}}",
+  "loading": "Ielādē...",
+  "requiredField": "Šis lauks ir obligāts",
+  "username": "LDAP lietotājvārds",
+  "password": "LDAP parole",
+  "signIn": "Pieteikties",
+  "permissions": {
+    "manage": {
+      "title": "Pārvaldīt LDAP katalogus",
+      "description": "Pievienot, mainīt un noņemt LDAP katalogus, ar kuriem lietotāji var pieteikties."
+    }
+  },
+  "providers": {
+    "docsLink": "Apskatīt dokumentāciju",
+    "none": "Nav konfigurēti LDAP katalogi.",
+    "add": "Pievienot katalogu",
+    "edit": "Rediģēt katalogu",
+    "delete": "Dzēst katalogu",
+    "deleteConfirm": "Dzēst šo katalogu? Tā lietotāji nevarēs ar to pieteikties.",
+    "name": "Attēlojamais nosaukums",
+    "namePlaceholder": "Uzņēmuma katalogs",
+    "nameRequired": "Ir nepieciešams attēlojamais nosaukums",
+    "enabled": "Iespējots",
+    "enabledDesc": "Ļaut lietotājiem pieteikties ar šo katalogu.",
+    "dialogDesc": "Savienojiet LDAP vai Active Directory serveri, lai lietotāji varētu ar to pieteikties.",
+    "sectionGeneral": "Vispārīgi",
+    "sectionConnection": "Savienojums",
+    "sectionUsers": "Lietotāju meklēšana",
+    "sectionAccess": "Piekļuve",
+    "save": "Saglabāt katalogu",
+    "saving": "Saglabā...",
+    "saved": "Saglabāts",
+    "saveFailed": "Neizdevās saglabāt",
+    "deleted": "Dzēsts",
+    "deleteFailed": "Neizdevās dzēst",
+    "loadFailed": "Neizdevās ielādēt LDAP katalogus",
+    "cancel": "Atcelt"
+  },
+  "fields": {
+    "host": "LDAP resursdators",
+    "port": "Ports",
+    "useTls": "Izmantot TLS (LDAPS)",
+    "useTlsDesc": "Savienojieties caur šifrētu LDAPS savienojumu.",
+    "tlsSkipVerify": "Izlaist sertifikāta pārbaudi",
+    "tlsSkipVerifyDesc": "Pieņemt jebkuru sertifikātu, ko parāda servers. Izmantojiet to tikai testēšanas katalogam, jo jebkurš starpnieks varētu nolasīt paroles.",
+    "tlsCaCert": "CA sertifikāts",
+    "tlsCaCertDesc": "Ielīmējiet PEM sertifikātu, kas parakstīja jūsu kataloga sertifikātu, ja tas nav no publiskas CA.",
+    "bindDn": "Sasaistes DN",
+    "bindPassword": "Sasaistes parole",
+    "secretKeep": "Parole ir saglabāta. Atstājiet tukšu, lai to saglabātu.",
+    "userSearchBase": "Lietotāju meklēšanas bāze",
+    "userSearchFilter": "Lietotāju meklēšanas filtrs",
+    "usernameAttr": "Lietotājvārda atribūts",
+    "groupSearchBase": "Grupu meklēšanas bāze",
+    "adminGroup": "Administratoru grupa",
+    "allowedUsers": "Atļautie lietotāji"
+  },
+  "plugin": {
+    "name": "LDAP"
+  }
+}

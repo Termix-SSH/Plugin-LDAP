@@ -1,0 +1,63 @@
+{
+  "loginWithLdap": "Prisijungti su LDAP",
+  "loginWithProvider": "Prisijungti su {{name}}",
+  "loading": "Įkeliama...",
+  "requiredField": "Šis laukas yra privalomas",
+  "username": "LDAP vartotojo vardas",
+  "password": "LDAP slaptažodis",
+  "signIn": "Prisijungti",
+  "permissions": {
+    "manage": {
+      "title": "Tvarkyti LDAP katalogus",
+      "description": "Pridėkite, pakeiskite ir pašalinkite LDAP katalogus, kuriais žmonės gali prisijungti."
+    }
+  },
+  "providers": {
+    "docsLink": "Peržiūrėti dokumentaciją",
+    "none": "Nėra sukonfigūruota LDAP katalogų.",
+    "add": "Pridėti katalogą",
+    "edit": "Redaguoti katalogą",
+    "delete": "Ištrinti katalogą",
+    "deleteConfirm": "Ištrinti šį katalogą? Jo vartotojai nebegalės juo prisijungti.",
+    "name": "Rodomas pavadinimas",
+    "namePlaceholder": "Įmonės katalogas",
+    "nameRequired": "Reikalingas rodomas pavadinimas",
+    "enabled": "Įjungta",
+    "enabledDesc": "Leisti vartotojams prisijungti su šiuo katalogu.",
+    "dialogDesc": "Prijunkite LDAP arba „Active Directory“ serverį, kad vartotojai galėtų juo prisijungti.",
+    "sectionGeneral": "Bendra",
+    "sectionConnection": "Ryšys",
+    "sectionUsers": "Vartotojų paieška",
+    "sectionAccess": "Prieiga",
+    "save": "Išsaugoti katalogą",
+    "saving": "Išsaugoma...",
+    "saved": "Išsaugota",
+    "saveFailed": "Nepavyko išsaugoti",
+    "deleted": "Ištrinta",
+    "deleteFailed": "Nepavyko ištrinti",
+    "loadFailed": "Nepavyko įkelti LDAP katalogų",
+    "cancel": "Atšaukti"
+  },
+  "fields": {
+    "host": "LDAP serveris",
+    "port": "Prievadas",
+    "useTls": "Naudoti TLS (LDAPS)",
+    "useTlsDesc": "Jungtis per šifruotą LDAPS ryšį.",
+    "tlsSkipVerify": "Praleisti sertifikato patikrinimą",
+    "tlsSkipVerifyDesc": "Priimti bet kokį serverio rodomą sertifikatą. Naudokite tai tik testiniam katalogui, nes bet kas tarpininkaujantis galėtų perskaityti slaptažodžius.",
+    "tlsCaCert": "CA sertifikatas",
+    "tlsCaCertDesc": "Įklijuokite PEM sertifikatą, pasirašiusį jūsų katalogo sertifikatą, jei jis nėra iš viešos CA.",
+    "bindDn": "Bind DN",
+    "bindPassword": "Bind slaptažodis",
+    "secretKeep": "Slaptažodis išsaugotas. Palikite tuščią, kad jį išlaikytumėte.",
+    "userSearchBase": "Vartotojų paieškos bazė",
+    "userSearchFilter": "Vartotojų paieškos filtras",
+    "usernameAttr": "Vartotojo vardo atributas",
+    "groupSearchBase": "Grupių paieškos bazė",
+    "adminGroup": "Administratorių grupė",
+    "allowedUsers": "Leisti vartotojams"
+  },
+  "plugin": {
+    "name": "LDAP"
+  }
+}

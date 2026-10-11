@@ -1,0 +1,63 @@
+{
+  "loginWithLdap": "Log masuk dengan LDAP",
+  "loginWithProvider": "Log masuk dengan {{name}}",
+  "loading": "Memuatkan...",
+  "requiredField": "Medan ini diperlukan",
+  "username": "Nama Pengguna LDAP",
+  "password": "Kata Laluan LDAP",
+  "signIn": "Log Masuk",
+  "permissions": {
+    "manage": {
+      "title": "Urus direktori LDAP",
+      "description": "Tambah, ubah, dan alihkan direktori LDAP yang boleh digunakan oleh pengguna untuk log masuk."
+    }
+  },
+  "providers": {
+    "docsLink": "Lihat dokumentasi",
+    "none": "Tiada direktori LDAP dikonfigurasi.",
+    "add": "Tambah Direktori",
+    "edit": "Sunting Direktori",
+    "delete": "Padam Direktori",
+    "deleteConfirm": "Padam direktori ini? Pengguna tidak akan dapat log masuk dengannya.",
+    "name": "Nama Paparan",
+    "namePlaceholder": "Direktori syarikat",
+    "nameRequired": "Nama paparan diperlukan",
+    "enabled": "Dilayakan",
+    "enabledDesc": "Benarkan pengguna log masuk dengan direktori ini.",
+    "dialogDesc": "Sambungkan pelayan LDAP atau Active Directory supaya pengguna boleh log masuk dengannya.",
+    "sectionGeneral": "Umum",
+    "sectionConnection": "Sambungan",
+    "sectionUsers": "Carian Pengguna",
+    "sectionAccess": "Akses",
+    "save": "Simpan Direktori",
+    "saving": "Menyimpan...",
+    "saved": "Disimpan",
+    "saveFailed": "Gagal menyimpan",
+    "deleted": "Dipadam",
+    "deleteFailed": "Gagal memadam",
+    "loadFailed": "Gagal memuatkan direktori LDAP",
+    "cancel": "Batal"
+  },
+  "fields": {
+    "host": "Hos LDAP",
+    "port": "Port",
+    "useTls": "Gunakan TLS (LDAPS)",
+    "useTlsDesc": "Sambung melalui sambungan LDAPS yang disulitkan.",
+    "tlsSkipVerify": "Langkau semakan sijil",
+    "tlsSkipVerifyDesc": "Terima mana-mana sijil yang dipaparkan oleh pelayan. Hanya gunakan ini untuk direktori ujian, kerana sesiapa sahaja di antara boleh membaca kata laluan.",
+    "tlsCaCert": "Sijil CA",
+    "tlsCaCertDesc": "Tampal sijil PEM yang menandatangani sijil direktori anda jika ia bukan daripada CA awam.",
+    "bindDn": "Bind DN",
+    "bindPassword": "Kata Laluan Bind",
+    "secretKeep": "Kata laluan disimpan. Kosongkan medan ini untuk mengekalkannya.",
+    "userSearchBase": "Asas Carian Pengguna",
+    "userSearchFilter": "Penapis Carian Pengguna",
+    "usernameAttr": "Atribut Nama Pengguna",
+    "groupSearchBase": "Asas Carian Kumpulan",
+    "adminGroup": "Kumpulan Admin",
+    "allowedUsers": "Pengguna Dibenarkan"
+  },
+  "plugin": {
+    "name": "LDAP"
+  }
+}

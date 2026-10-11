@@ -1,0 +1,63 @@
+{
+  "loginWithLdap": "Prijava z LDAP",
+  "loginWithProvider": "Prijava z {{name}}",
+  "loading": "Nalaganje...",
+  "requiredField": "To polje je obvezno",
+  "username": "LDAP uporabniško ime",
+  "password": "LDAP geslo",
+  "signIn": "Prijava",
+  "permissions": {
+    "manage": {
+      "title": "Upravljanje LDAP imenikov",
+      "description": "Dodajanje, spreminjanje in odstranjevanje LDAP imenikov, s katerimi se lahko uporabniki prijavijo."
+    }
+  },
+  "providers": {
+    "docsLink": "Ogled dokumentacije",
+    "none": "Ni konfiguriranih LDAP imenikov.",
+    "add": "Dodaj imenik",
+    "edit": "Uredi imenik",
+    "delete": "Izbriši imenik",
+    "deleteConfirm": "Izbrišete ta imenik? Njegovi uporabniki se ne bodo mogli prijaviti z njim.",
+    "name": "Prikazno ime",
+    "namePlaceholder": "Imenik podjetja",
+    "nameRequired": "Prikazno ime je obvezno",
+    "enabled": "Omogočeno",
+    "enabledDesc": "Dovoli uporabnikom prijavo s tem imenikom.",
+    "dialogDesc": "Povežite strežnik LDAP ali Active Directory, da se lahko uporabniki prijavijo z njim.",
+    "sectionGeneral": "Splošno",
+    "sectionConnection": "Povezava",
+    "sectionUsers": "Iskanje uporabnikov",
+    "sectionAccess": "Dostop",
+    "save": "Shrani imenik",
+    "saving": "Shranjevanje...",
+    "saved": "Shranjeno",
+    "saveFailed": "Shranjevanje ni uspelo",
+    "deleted": "Izbrisano",
+    "deleteFailed": "Brisanje ni uspelo",
+    "loadFailed": "Nalaganje LDAP imenikov ni uspelo",
+    "cancel": "Prekliči"
+  },
+  "fields": {
+    "host": "LDAP gostitelj",
+    "port": "Vrata",
+    "useTls": "Uporabi TLS (LDAPS)",
+    "useTlsDesc": "Poveži prek šifrirane LDAPS povezave.",
+    "tlsSkipVerify": "Preskoči preverjanje certifikata",
+    "tlsSkipVerifyDesc": "Sprejmi kateri koli certifikat, ki ga pokaže strežnik. To uporabite le za testni imenik, saj bi lahko vsakdo med vami prebral gesla.",
+    "tlsCaCert": "CA certifikat",
+    "tlsCaCertDesc": "Prilepite PEM certifikat, ki je podpisal certifikat vašega imenika, če ni iz javne CA.",
+    "bindDn": "Bind DN",
+    "bindPassword": "Bind geslo",
+    "secretKeep": "Geslo je shranjeno. Pustite prazno, da ga ohranite.",
+    "userSearchBase": "Osнова za iskanje uporabnikov",
+    "userSearchFilter": "Filter za iskanje uporabnikov",
+    "usernameAttr": "Atribut uporabniškega imena",
+    "groupSearchBase": "Osнова za iskanje skupin",
+    "adminGroup": "Skupina administratorjev",
+    "allowedUsers": "Dovoljeni uporabniki"
+  },
+  "plugin": {
+    "name": "LDAP"
+  }
+}

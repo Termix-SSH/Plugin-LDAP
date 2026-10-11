@@ -1,0 +1,63 @@
+{
+  "loginWithLdap": "Logi sisse läbi LDAP",
+  "loginWithProvider": "Logi sisse läbi {{name}}",
+  "loading": "Laadimine...",
+  "requiredField": "See väli on kohustuslik",
+  "username": "LDAP kasutajanimi",
+  "password": "LDAP parool",
+  "signIn": "Logi sisse",
+  "permissions": {
+    "manage": {
+      "title": "LDAP-kataloogide haldamine",
+      "description": "Lisa, muuda ja eemalda LDAP-kataloogid, mille kaudu kasutajad sisse logida saavad."
+    }
+  },
+  "providers": {
+    "docsLink": "Vaata dokumentatsiooni",
+    "none": "Ühtegi LDAP-kataloogi pole seadistatud.",
+    "add": "Lisa kataloog",
+    "edit": "Muuda kataloogi",
+    "delete": "Kustuta kataloog",
+    "deleteConfirm": "Kas kustutada see kataloog? Selle kasutajad ei saa enam selle kaudu sisse logida.",
+    "name": "Kuvamine nimi",
+    "namePlaceholder": "Ettevõtte kataloog",
+    "nameRequired": "Kuvamine nimi on kohustuslik",
+    "enabled": "Lubatud",
+    "enabledDesc": "Luba kasutajatel sellesse kataloogi sisse logida.",
+    "dialogDesc": "Ühenda LDAP- või Active Directory-server, et kasutajad saaksid selle kaudu sisse logida.",
+    "sectionGeneral": "Üldine",
+    "sectionConnection": "Ühendus",
+    "sectionUsers": "Kasutaja otsing",
+    "sectionAccess": "Juurdepääs",
+    "save": "Salvesta kataloog",
+    "saving": "Salvestamine...",
+    "saved": "Salvestatud",
+    "saveFailed": "Salvestamine ebaõnnestus",
+    "deleted": "Kustutatud",
+    "deleteFailed": "Kustutamine ebaõnnestus",
+    "loadFailed": "LDAP-kataloogide laadimine ebaõnnestus",
+    "cancel": "Tühista"
+  },
+  "fields": {
+    "host": "LDAP peremeesmasin",
+    "port": "Port",
+    "useTls": "Kasuta TLS-i (LDAPS)",
+    "useTlsDesc": "Ühenda krüpteeritud LDAPS-ühenduse kaudu.",
+    "tlsSkipVerify": "Jäta sertifikaadi kontroll vahele",
+    "tlsSkipVerifyDesc": "Nõustu serveri poolt esitatud mis tahes sertifikaadiga. Kasuta seda ainult testkataloogi puhul, kuna keskmehetõrke rünnaku korral saaks keegi paroolide lugemist jälgida.",
+    "tlsCaCert": "CA sertifikaat",
+    "tlsCaCertDesc": "Kui kataloogi sertifikaati ei ole allkirjastanud avalik CA, kopeeri siia selle sertifikaati allkirjastanud PEM-sertifikaat.",
+    "bindDn": "Bind DN",
+    "bindPassword": "Bind parool",
+    "secretKeep": "Parool on salvestatud. Jäta see tühjaks, et see säilitada.",
+    "userSearchBase": "Kasutaja otsingu baas",
+    "userSearchFilter": "Kasutaja otsingu filter",
+    "usernameAttr": "Kasutajanime atribuut",
+    "groupSearchBase": "Rühma otsingu baas",
+    "adminGroup": "Administraatorite rühm",
+    "allowedUsers": "Lubatud kasutajad"
+  },
+  "plugin": {
+    "name": "LDAP"
+  }
+}

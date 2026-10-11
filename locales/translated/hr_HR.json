@@ -1,0 +1,63 @@
+{
+  "loginWithLdap": "Prijava putem LDAP-a",
+  "loginWithProvider": "Prijava putem {{name}}",
+  "loading": "Učitavanje...",
+  "requiredField": "Ovo polje je obavezno",
+  "username": "LDAP korisničko ime",
+  "password": "LDAP lozinka",
+  "signIn": "Prijava",
+  "permissions": {
+    "manage": {
+      "title": "Upravljanje LDAP imenicama",
+      "description": "Dodajte, promijenite i uklonite LDAP imenice kojima se korisnici mogu prijaviti."
+    }
+  },
+  "providers": {
+    "docsLink": "Pregled dokumentacije",
+    "none": "Nema konfiguriranih LDAP imenica.",
+    "add": "Dodaj imenicu",
+    "edit": "Uredi imenicu",
+    "delete": "Izbriši imenicu",
+    "deleteConfirm": "Izbrisati ovu imenicu? Njezini korisnici više se neće moći prijaviti putem nje.",
+    "name": "Naziv za prikaz",
+    "namePlaceholder": "Imenica tvrtke",
+    "nameRequired": "Naziv za prikaz je obavezan",
+    "enabled": "Omogućeno",
+    "enabledDesc": "Dopustite korisnicima da se prijave putem ove imenice.",
+    "dialogDesc": "Povežite LDAP ili Active Directory poslužitelj kako bi se korisnici mogli prijaviti putem njega.",
+    "sectionGeneral": "Općenito",
+    "sectionConnection": "Veza",
+    "sectionUsers": "Pretraživanje korisnika",
+    "sectionAccess": "Pristup",
+    "save": "Spremi imenicu",
+    "saving": "Spremanje...",
+    "saved": "Spremljeno",
+    "saveFailed": "Spremanje nije uspjelo",
+    "deleted": "Izbrisano",
+    "deleteFailed": "Brisanje nije uspjelo",
+    "loadFailed": "Učitavanje LDAP imenica nije uspjelo",
+    "cancel": "Odustani"
+  },
+  "fields": {
+    "host": "LDAP poslužitelj",
+    "port": "Port",
+    "useTls": "Koristi TLS (LDAPS)",
+    "useTlsDesc": "Povežite se putem šifrirane LDAPS veze.",
+    "tlsSkipVerify": "Preskoči provjeru certifikata",
+    "tlsSkipVerifyDesc": "Prihvati bilo koji certifikat koji poslužitelj pokaže. Koristite ovo samo za testnu imenicu, jer bi bilo tko između mogao pročitati lozinke.",
+    "tlsCaCert": "CA certifikat",
+    "tlsCaCertDesc": "Zalijepite PEM certifikat koji je potpisao certifikat vaše imenice ako nije iz javne CA.",
+    "bindDn": "Bind DN",
+    "bindPassword": "Bind lozinka",
+    "secretKeep": "Lozinka je spremljena. Ostavite ovo prazno da je zadržite.",
+    "userSearchBase": "Baza za pretraživanje korisnika",
+    "userSearchFilter": "Filter za pretraživanje korisnika",
+    "usernameAttr": "Atribut korisničkog imena",
+    "groupSearchBase": "Baza za pretraživanje grupa",
+    "adminGroup": "Admin grupa",
+    "allowedUsers": "Dopušteni korisnici"
+  },
+  "plugin": {
+    "name": "LDAP"
+  }
+}

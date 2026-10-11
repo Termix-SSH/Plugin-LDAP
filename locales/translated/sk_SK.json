@@ -1,0 +1,63 @@
+{
+  "loginWithLdap": "Prihlásiť sa pomocou LDAP",
+  "loginWithProvider": "Prihlásiť sa pomocou {{name}}",
+  "loading": "Načítava sa...",
+  "requiredField": "Toto pole je povinné",
+  "username": "LDAP používateľské meno",
+  "password": "LDAP heslo",
+  "signIn": "Prihlásiť sa",
+  "permissions": {
+    "manage": {
+      "title": "Spravovať LDAP adresáre",
+      "description": "Pridávajte, meníte a odstraňujte LDAP adresáre, pomocou ktorých sa môžu používatelia prihlásiť."
+    }
+  },
+  "providers": {
+    "docsLink": "Zobraziť dokumentáciu",
+    "none": "Nie sú nakonfigurované žiadne LDAP adresáre.",
+    "add": "Pridať adresár",
+    "edit": "Upraviť adresár",
+    "delete": "Odstrániť adresár",
+    "deleteConfirm": "Odstrániť tento adresár? Jeho používatelia sa už nebudú môcť prihlásiť pomocou neho.",
+    "name": "Zobrazované meno",
+    "namePlaceholder": "Firemný adresár",
+    "nameRequired": "Zobrazované meno je povinné",
+    "enabled": "Povolené",
+    "enabledDesc": "Umožniť používateľom prihlasovanie pomocou tohto adresára.",
+    "dialogDesc": "Pripojte server LDAP alebo Active Directory, aby sa používatelia mohli prihlásiť pomocou neho.",
+    "sectionGeneral": "Všeobecné",
+    "sectionConnection": "Pripojenie",
+    "sectionUsers": "Vyhľadávanie používateľov",
+    "sectionAccess": "Prístup",
+    "save": "Uložiť adresár",
+    "saving": "Ukladá sa...",
+    "saved": "Uložené",
+    "saveFailed": "Uloženie zlyhalo",
+    "deleted": "Odstránené",
+    "deleteFailed": "Odstránenie zlyhalo",
+    "loadFailed": "Načítanie LDAP adresárov zlyhalo",
+    "cancel": "Zrušiť"
+  },
+  "fields": {
+    "host": "LDAP hostiteľ",
+    "port": "Port",
+    "useTls": "Použiť TLS (LDAPS)",
+    "useTlsDesc": "Pripojiť sa cez šifrované LDAPS pripojenie.",
+    "tlsSkipVerify": "Preskočiť overenie certifikátu",
+    "tlsSkipVerifyDesc": "Prijať akýkoľvek certifikát, ktorý server zobrazí. Používajte to len pre testovací adresár, pretože ktokoľvek medzi vami by mohol čítať heslá.",
+    "tlsCaCert": "CA certifikát",
+    "tlsCaCertDesc": "Vložte PEM certifikát, ktorý podpísal certifikát vášho adresára, ak nie je od verejnej CA.",
+    "bindDn": "Bind DN",
+    "bindPassword": "Bind heslo",
+    "secretKeep": "Heslo je uložené. Nechajte toto pole prázdne, aby ste ho zachovali.",
+    "userSearchBase": "Základ vyhľadávania používateľov",
+    "userSearchFilter": "Filter vyhľadávania používateľov",
+    "usernameAttr": "Atribút používateľského mena",
+    "groupSearchBase": "Základ vyhľadávania skupín",
+    "adminGroup": "Skupina administrátorov",
+    "allowedUsers": "Povolení používatelia"
+  },
+  "plugin": {
+    "name": "LDAP"
+  }
+}
