@@ -45,9 +45,9 @@ Use `$external.username` as a host's username to fill in the name someone signed
 
 ## Troubleshooting
 
-- **Invalid credentials for everyone.** Check the bind DN and password first, then the search base and filter. The server log shows why a sign in was refused.
-- **Refused even with the right password.** The filter has to match exactly one entry. If it matches several, Termix refuses the sign in rather than guess, so make the filter stricter.
-- **Certificate errors with LDAPS.** Paste your CA under CA certificate.
-- **Too many attempts.** Sign ins are rate limited per user to stop guessing. Wait a few minutes.
+- Invalid credentials for everyone: Check the bind DN and password first, then the search base and filter. The server log shows why a sign in was refused.
+- Refused even with the right password: The filter has to match exactly one entry. If it matches several, Termix refuses the sign in rather than guess, so make the filter stricter.
+- Certificate errors with LDAPS: Paste your CA under CA certificate.
+- Too many attempts: Sign ins are rate limited per user to stop guessing. Wait a few minutes.
 
 Who can add and change directories is set by `ldap.manage`. Only admins have it at first.
