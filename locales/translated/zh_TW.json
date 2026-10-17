@@ -58,6 +58,7 @@
     "allowedUsers": "允許的使用者"
   },
   "plugin": {
-    "name": "LDAP"
+    "name": "LDAP",
+    "description": "使用 LDAP 或 Active Directory 使用者名稱和密碼登入。"
   }
 }

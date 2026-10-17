@@ -58,6 +58,7 @@
     "allowedUsers": "Allowed Users"
   },
   "plugin": {
-    "name": "LDAP"
+    "name": "LDAP",
+    "description": "Sign in with your LDAP or Active Directory username and password."
   }
 }
