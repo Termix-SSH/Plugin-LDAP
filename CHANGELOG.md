@@ -2,6 +2,10 @@
 
 ## 1.0.2
 
+### Added
+
+- Default roles and group roles per LDAP directory, so new users get their custom roles at their first sign in
+
 ### Changed
 
 - The plugin name and description show in your language

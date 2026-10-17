@@ -13,6 +13,10 @@ export interface LdapConfig {
   usernameAttribute: string;
   groupSearchBase?: string;
   adminGroup?: string;
+  /** Termix roles every user from this directory gets, comma separated. */
+  defaultRoles?: string;
+  /** One "group:role" per line, the group as a cn or DN. */
+  roleMap?: string;
   allowedUsers?: string;
 }
 

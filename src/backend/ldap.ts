@@ -13,6 +13,13 @@ import {
 } from "@termix-ssh/plugin-sdk/backend";
 import type { ProviderStore } from "./providers.js";
 import type { LdapConfig } from "./types.js";
+import {
+  normalizeDn,
+  parseRoleList,
+  parseRoleMap,
+  resolveLdapRoles,
+  type LdapGroup,
+} from "./roles.js";
 
 export const METHOD_ID = "ldap";
 
@@ -27,18 +34,7 @@ function ldapEscapeFilter(value: string): string {
  * A DN for comparing: LDAP matches DNs without case, and directories differ
  * on spaces around the commas and equals signs.
  */
-export function normalizeDn(dn: string): string {
-  return dn
-    .split(/(?<!\\),/)
-    .map((rdn) =>
-      rdn
-        .split(/(?<!\\)=/)
-        .map((part) => part.trim())
-        .join("="),
-    )
-    .join(",")
-    .toLowerCase();
-}
+export { normalizeDn };
 
 /** The provider id identities from this directory are stored under. */
 export function identityProvider(providerId: number): string {
@@ -227,26 +223,39 @@ export function createLdapLogin(ctx: PluginContext, store: ProviderStore) {
         unbind(userClient);
       }
 
-      let isAdmin: boolean | undefined;
-      if (config.adminGroup && config.groupSearchBase) {
-        isAdmin = false;
+      const roleMap = parseRoleMap(config.roleMap);
+      let groups: LdapGroup[] | null = null;
+      if (config.groupSearchBase && (config.adminGroup || roleMap.length > 0)) {
         try {
-          const groups = await search(
+          const entries = await search(
             serviceClient,
             config.groupSearchBase,
             `(member=${ldapEscapeFilter(userDN)})`,
             ["cn", "dn"],
           );
-          const wanted = normalizeDn(config.adminGroup);
-          isAdmin = groups.some(
-            (group) =>
-              firstValue(group, "cn") === config.adminGroup ||
-              normalizeDn(group.dn.toString()) === wanted,
-          );
+          groups = entries.map((group) => ({
+            cn: firstValue(group, "cn") || "",
+            dn: group.dn.toString(),
+          }));
         } catch (error) {
           ctx.log.warn(`LDAP group check failed: ${String(error)}`);
         }
       }
+
+      let isAdmin: boolean | undefined;
+      if (config.adminGroup && config.groupSearchBase) {
+        const wanted = normalizeDn(config.adminGroup);
+        isAdmin = (groups ?? []).some(
+          (group) =>
+            group.cn === config.adminGroup || normalizeDn(group.dn) === wanted,
+        );
+      }
+
+      const roles = resolveLdapRoles({
+        groups,
+        roleMap,
+        defaultRoles: parseRoleList(config.defaultRoles),
+      });
 
       return {
         kind: "external",
@@ -256,6 +265,7 @@ export function createLdapLogin(ctx: PluginContext, store: ProviderStore) {
         // Termix accounts have one name, so it is the login name.
         name: uid,
         isAdmin,
+        ...(roles ? { roles } : {}),
         allowedUsers: config.allowedUsers ?? null,
         legacy: {
           identifier: `ldap:${providerId}:${uid}`,
