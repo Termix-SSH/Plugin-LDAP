@@ -32,6 +32,7 @@
   "providers.deleteFailed": "07931ff7dc8f",
   "providers.loadFailed": "e23cc2b8c622",
   "providers.cancel": "77dfd2135f4d",
+  "providers.sectionRoles": "47dcc27d6e87",
   "fields.host": "1bdd79ac24b6",
   "fields.port": "fe035157cda2",
   "fields.useTls": "172aa1b1a3dd",
@@ -48,6 +49,11 @@
   "fields.usernameAttr": "2125b1f01598",
   "fields.groupSearchBase": "6ad4641539b6",
   "fields.adminGroup": "a10df6f24adf",
+  "fields.defaultRoles": "962ff1c75d05",
+  "fields.defaultRolesDesc": "7e21320c4696",
+  "fields.roleMap": "68d234de5874",
+  "fields.roleMapDesc": "8b31d556f387",
   "fields.allowedUsers": "d097d0321966",
-  "plugin.name": "d8343c683ae1"
+  "plugin.name": "d8343c683ae1",
+  "plugin.description": "1e4cb479ab69"
 }

@@ -36,7 +36,8 @@
     "deleted": "Ištrinta",
     "deleteFailed": "Nepavyko ištrinti",
     "loadFailed": "Nepavyko įkelti LDAP katalogų",
-    "cancel": "Atšaukti"
+    "cancel": "Atšaukti",
+    "sectionRoles": "Vaidmenys"
   },
   "fields": {
     "host": "LDAP serveris",
@@ -55,9 +56,14 @@
     "usernameAttr": "Vartotojo vardo atributas",
     "groupSearchBase": "Grupių paieškos bazė",
     "adminGroup": "Administratorių grupė",
+    "defaultRoles": "Numatytosios rolės",
+    "defaultRolesDesc": "Termix vaidmenys, kuriuos gauna kiekvienas prisijungiantis vartotojas iš šios katalogo. Vardus atskirkite kableliais.",
+    "roleMap": "Grupės vaidmenys",
+    "roleMapDesc": "Viena grupė:rolė eilutėje. Grupė gali būti jos cn arba pilnas DN. Vartotojai gauna rolę prisijungimo metu, kol jie yra grupėje, ir praranda ją palikę grupę. Reikalinga grupės paieškos bazė.",
     "allowedUsers": "Leisti vartotojams"
   },
   "plugin": {
-    "name": "LDAP"
+    "name": "LDAP",
+    "description": "Prisijunkite naudodami savo LDAP arba „Active Directory“ vartotojo vardą ir slaptažodį."
   }
 }

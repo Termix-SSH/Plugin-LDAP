@@ -36,7 +36,8 @@
     "deleted": "Đã xóa",
     "deleteFailed": "Xóa không thành công",
     "loadFailed": "Tải danh mục LDAP không thành công",
-    "cancel": "Hủy"
+    "cancel": "Hủy",
+    "sectionRoles": "Vai trò"
   },
   "fields": {
     "host": "Máy chủ LDAP",
@@ -55,9 +56,14 @@
     "usernameAttr": "Thuộc tính tên người dùng",
     "groupSearchBase": "Cơ sở tìm kiếm nhóm",
     "adminGroup": "Nhóm quản trị viên",
+    "defaultRoles": "Vai trò mặc định",
+    "defaultRolesDesc": "Các vai trò Termix mà mọi người dùng từ danh mục này sẽ có khi đăng nhập. Tách các tên bằng dấu phẩy.",
+    "roleMap": "Vai trò nhóm",
+    "roleMapDesc": "Một dòng cho mỗi nhóm:vai trò. Nhóm có thể là cn hoặc DN đầy đủ. Người dùng sẽ có vai trò khi đăng nhập nếu họ thuộc nhóm đó, và mất vai trò khi rời khỏi nhóm. Cần chỉ định cơ sở tìm kiếm nhóm.",
     "allowedUsers": "Người dùng được phép"
   },
   "plugin": {
-    "name": "LDAP"
+    "name": "LDAP",
+    "description": "Đăng nhập bằng tên người dùng và mật khẩu LDAP hoặc Active Directory của bạn."
   }
 }

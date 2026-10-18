@@ -36,7 +36,8 @@
     "deleted": "Dipadam",
     "deleteFailed": "Gagal memadam",
     "loadFailed": "Gagal memuatkan direktori LDAP",
-    "cancel": "Batal"
+    "cancel": "Batal",
+    "sectionRoles": "Peranan"
   },
   "fields": {
     "host": "Hos LDAP",
@@ -55,9 +56,14 @@
     "usernameAttr": "Atribut Nama Pengguna",
     "groupSearchBase": "Asas Carian Kumpulan",
     "adminGroup": "Kumpulan Admin",
+    "defaultRoles": "Peranan lalai",
+    "defaultRolesDesc": "Peranan Termix yang diterima oleh setiap pengguna dari direktori ini apabila mereka log masuk. Pisahkan nama dengan koma.",
+    "roleMap": "Peranan kumpulan",
+    "roleMapDesc": "Satu kumpulan:peranan setiap baris. Kumpulan boleh menjadi cn atau DN penuh. Pengguna mendapat peranan semasa log masuk apabila mereka berada dalam kumpulan, dan kehilangannya apabila mereka keluar. Memerlukan asas carian kumpulan.",
     "allowedUsers": "Pengguna Dibenarkan"
   },
   "plugin": {
-    "name": "LDAP"
+    "name": "LDAP",
+    "description": "Log masuk dengan nama pengguna dan kata laluan LDAP atau Active Directory anda."
   }
 }

@@ -36,7 +36,8 @@
     "deleted": "Deleted",
     "deleteFailed": "Failed to delete",
     "loadFailed": "Failed to load LDAP directories",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "sectionRoles": "Roles"
   },
   "fields": {
     "host": "LDAP Host",
@@ -55,9 +56,14 @@
     "usernameAttr": "Username Attribute",
     "groupSearchBase": "Group Search Base",
     "adminGroup": "Admin Group",
+    "defaultRoles": "Default roles",
+    "defaultRolesDesc": "Termix roles every user from this directory gets when they sign in. Separate names with commas.",
+    "roleMap": "Group roles",
+    "roleMapDesc": "One group:role per line. The group can be its cn or full DN. Users get the role at sign in while they are in the group, and lose it once they leave. Needs a group search base.",
     "allowedUsers": "Allowed Users"
   },
   "plugin": {
-    "name": "LDAP"
+    "name": "LDAP",
+    "description": "Sign in with your LDAP or Active Directory username and password."
   }
 }

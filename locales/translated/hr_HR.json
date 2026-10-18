@@ -36,7 +36,8 @@
     "deleted": "Izbrisano",
     "deleteFailed": "Brisanje nije uspjelo",
     "loadFailed": "Učitavanje LDAP imenica nije uspjelo",
-    "cancel": "Odustani"
+    "cancel": "Odustani",
+    "sectionRoles": "Uloge"
   },
   "fields": {
     "host": "LDAP poslužitelj",
@@ -55,9 +56,14 @@
     "usernameAttr": "Atribut korisničkog imena",
     "groupSearchBase": "Baza za pretraživanje grupa",
     "adminGroup": "Admin grupa",
+    "defaultRoles": "Zadane uloge",
+    "defaultRolesDesc": "Termix uloge koje svaki korisnik iz ovog imenika dobiva pri prijavi. Imena odvojite zarezima.",
+    "roleMap": "Uloge grupa",
+    "roleMapDesc": "Jedna grupa:uloga po retku. Grupa može biti njezin cn ili puni DN. Korisnici dobivaju ulogu pri prijavi dok su u grupi, a gube je čim napuste grupu. Potrebna je baza za pretraživanje grupa.",
     "allowedUsers": "Dopušteni korisnici"
   },
   "plugin": {
-    "name": "LDAP"
+    "name": "LDAP",
+    "description": "Prijavite se svojim LDAP ili Active Directory korisničkim imenom i lozinkom."
   }
 }

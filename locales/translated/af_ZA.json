@@ -36,7 +36,8 @@
     "deleted": "Verwyder",
     "deleteFailed": "Kon nie verwyder nie",
     "loadFailed": "Kon nie LDAP-gidse laai nie",
-    "cancel": "Kanselleer"
+    "cancel": "Kanselleer",
+    "sectionRoles": "Rolle"
   },
   "fields": {
     "host": "LDAP-bedienaar",
@@ -55,9 +56,14 @@
     "usernameAttr": "Gebruikersnaam-attribuut",
     "groupSearchBase": "Groepopsoekbasis",
     "adminGroup": "Admin-groep",
+    "defaultRoles": "Verstekrolle",
+    "defaultRolesDesc": "Termix-rolle wat elke gebruiker uit hierdie gids kry wanneer hulle aanmeld. Skei name met kommas.",
+    "roleMap": "Groeperolle",
+    "roleMapDesc": "Een groep:rol per lyn. Die groep kan sy cn of volle DN wees. Gebruikers kry die rol tydens aanmelding terwyl hulle in die groep is, en verloor dit sodra hulle verlaat. Vereis 'n groepsoekbasis.",
     "allowedUsers": "Toegelaat gebruikers"
   },
   "plugin": {
-    "name": "LDAP"
+    "name": "LDAP",
+    "description": "Meld aan met jou LDAP- of Active Directory-gebruikersnaam en wagwoord."
   }
 }

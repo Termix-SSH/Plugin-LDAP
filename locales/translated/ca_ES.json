@@ -36,7 +36,8 @@
     "deleted": "S'ha eliminat",
     "deleteFailed": "No s'ha pogut eliminar",
     "loadFailed": "No s'han pogut carregar els directoris LDAP",
-    "cancel": "Cancel·la"
+    "cancel": "Cancel·la",
+    "sectionRoles": "Rols"
   },
   "fields": {
     "host": "Amfitrió LDAP",
@@ -55,9 +56,14 @@
     "usernameAttr": "Atribut del nom d'usuari",
     "groupSearchBase": "Base de cerca de grups",
     "adminGroup": "Grup d'administradors",
+    "defaultRoles": "Rols predeterminats",
+    "defaultRolesDesc": "Els rols de Termix que rep cada usuari d'aquest directori en iniciar sessió. Separeu els noms amb comes.",
+    "roleMap": "Rols de grup",
+    "roleMapDesc": "Un grup:rol per línia. El grup pot ser el seu cn o el DN complet. Els usuaris reben el rol en iniciar sessió mentre són al grup i el perden en sortir-ne. Requereix una base de cerca de grups.",
     "allowedUsers": "Usuaris permesos"
   },
   "plugin": {
-    "name": "LDAP"
+    "name": "LDAP",
+    "description": "Inicieu sessió amb el vostre nom d'usuari i contrasenya d'LDAP o Active Directory."
   }
 }

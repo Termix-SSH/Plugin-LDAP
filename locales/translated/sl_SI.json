@@ -36,7 +36,8 @@
     "deleted": "Izbrisano",
     "deleteFailed": "Brisanje ni uspelo",
     "loadFailed": "Nalaganje LDAP imenikov ni uspelo",
-    "cancel": "Prekliči"
+    "cancel": "Prekliči",
+    "sectionRoles": "Vloge"
   },
   "fields": {
     "host": "LDAP gostitelj",
@@ -55,9 +56,14 @@
     "usernameAttr": "Atribut uporabniškega imena",
     "groupSearchBase": "Osнова za iskanje skupin",
     "adminGroup": "Skupina administratorjev",
+    "defaultRoles": "Privzete vloge",
+    "defaultRolesDesc": "Vloge Termix, ki jih vsak uporabnik iz tega imenika prejme ob prijavi. Imena ločite z vejicami.",
+    "roleMap": "Vloge skupin",
+    "roleMapDesc": "Ena skupina:vloga na vrstico. Skupina je lahko njen cn ali polna DN. Uporabniki prejmejo vlogo ob prijavi, medtem ko so v skupini, in jo izgubijo, ko jo zapustijo. Potrebna je osnovna iskalna pot za skupine.",
     "allowedUsers": "Dovoljeni uporabniki"
   },
   "plugin": {
-    "name": "LDAP"
+    "name": "LDAP",
+    "description": "Prijava z uporabniškim imenom in geslom iz LDAP ali Active Directory."
   }
 }

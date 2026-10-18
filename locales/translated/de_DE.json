@@ -36,7 +36,8 @@
     "deleted": "Gelöscht",
     "deleteFailed": "Löschen fehlgeschlagen",
     "loadFailed": "LDAP-Verzeichnisse konnten nicht geladen werden",
-    "cancel": "Abbrechen"
+    "cancel": "Abbrechen",
+    "sectionRoles": "Rollen"
   },
   "fields": {
     "host": "LDAP-Host",
@@ -55,9 +56,14 @@
     "usernameAttr": "Attribut für Benutzernamen",
     "groupSearchBase": "Basis für Gruppensuche",
     "adminGroup": "Admin-Gruppe",
+    "defaultRoles": "Standardrollen",
+    "defaultRolesDesc": "Termix-Rollen, die jeder Benutzer aus diesem Verzeichnis beim Anmelden erhält. Trennen Sie die Namen mit Kommas.",
+    "roleMap": "Gruppenrollen",
+    "roleMapDesc": "Eine Gruppe:Rolle pro Zeile. Die Gruppe kann ihr cn oder die vollständige DN sein. Benutzer erhalten die Rolle bei der Anmeldung, solange sie in der Gruppe sind, und verlieren sie, sobald sie diese verlassen. Erfordert eine Gruppensuchbasis.",
     "allowedUsers": "Erlaubte Benutzer"
   },
   "plugin": {
-    "name": "LDAP"
+    "name": "LDAP",
+    "description": "Melden Sie sich mit Ihrem LDAP- oder Active Directory-Benutzernamen und Passwort an."
   }
 }

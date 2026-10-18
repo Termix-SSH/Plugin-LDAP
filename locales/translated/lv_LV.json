@@ -36,7 +36,8 @@
     "deleted": "Dzēsts",
     "deleteFailed": "Neizdevās dzēst",
     "loadFailed": "Neizdevās ielādēt LDAP katalogus",
-    "cancel": "Atcelt"
+    "cancel": "Atcelt",
+    "sectionRoles": "Lomas"
   },
   "fields": {
     "host": "LDAP resursdators",
@@ -55,9 +56,14 @@
     "usernameAttr": "Lietotājvārda atribūts",
     "groupSearchBase": "Grupu meklēšanas bāze",
     "adminGroup": "Administratoru grupa",
+    "defaultRoles": "Standarta lomas",
+    "defaultRolesDesc": "Termix lomas, kuras saņem katrs lietotājs no šīs adresesgrāmatas, pierakstoties. Nosaukumus atdaliet ar komatiem.",
+    "roleMap": "Grupu lomas",
+    "roleMapDesc": "Viena grupa:loma katrā rindā. Grupa var būt tās cn vai pilns DN. Lietotāji iegūst lomu pieteikšanās brīdī, kamēr viņi atrodas grupā, un zaudē to, tiklīdz to atstāj. Nepieciešama grupas meklēšanas bāze.",
     "allowedUsers": "Atļautie lietotāji"
   },
   "plugin": {
-    "name": "LDAP"
+    "name": "LDAP",
+    "description": "Pieslēdzieties, izmantojot savu LDAP vai Active Directory lietotājvārdu un paroli."
   }
 }

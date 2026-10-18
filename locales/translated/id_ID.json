@@ -36,7 +36,8 @@
     "deleted": "Dihapus",
     "deleteFailed": "Gagal menghapus",
     "loadFailed": "Gagal memuat direktori LDAP",
-    "cancel": "Batal"
+    "cancel": "Batal",
+    "sectionRoles": "Peran"
   },
   "fields": {
     "host": "Host LDAP",
@@ -55,9 +56,14 @@
     "usernameAttr": "Atribut Nama Pengguna",
     "groupSearchBase": "Basis Pencarian Grup",
     "adminGroup": "Grup Admin",
+    "defaultRoles": "Peran default",
+    "defaultRolesDesc": "Peran Termix yang diterima setiap pengguna dari direktori ini saat mereka masuk. Pisahkan nama dengan koma.",
+    "roleMap": "Peran grup",
+    "roleMapDesc": "Satu grup:peran per baris. Grup dapat berupa cn atau DN lengkap. Pengguna mendapatkan peran saat masuk jika mereka berada dalam grup, dan kehilangannya setelah keluar. Memerlukan basis pencarian grup.",
     "allowedUsers": "Pengguna yang Diizinkan"
   },
   "plugin": {
-    "name": "LDAP"
+    "name": "LDAP",
+    "description": "Masuk dengan nama pengguna dan kata sandi LDAP atau Active Directory Anda."
   }
 }

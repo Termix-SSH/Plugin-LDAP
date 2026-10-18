@@ -36,7 +36,8 @@
     "deleted": "Șters",
     "deleteFailed": "Ștergerea a eșuat",
     "loadFailed": "Încărcarea directoarelor LDAP a eșuat",
-    "cancel": "Anulare"
+    "cancel": "Anulare",
+    "sectionRoles": "Roluri"
   },
   "fields": {
     "host": "Gazdă LDAP",
@@ -55,9 +56,14 @@
     "usernameAttr": "Atribut nume utilizator",
     "groupSearchBase": "Bază de căutare grupuri",
     "adminGroup": "Grup administratori",
+    "defaultRoles": "Roluri implicite",
+    "defaultRolesDesc": "Rolurile Termix pe care fiecare utilizator din acest director le primește la autentificare. Separați numele cu virgule.",
+    "roleMap": "Roluri de grup",
+    "roleMapDesc": "Un singur grup:rol pe linie. Grupul poate fi cn-ul său sau DN-ul complet. Utilizatorii primesc rolul la autentificare în timp ce se află în grup și îl pierd odată ce părăsesc grupul. Este necesară o bază de căutare a grupurilor.",
     "allowedUsers": "Utilizatori autorizați"
   },
   "plugin": {
-    "name": "LDAP"
+    "name": "LDAP",
+    "description": "Autentifică-te cu numele de utilizator și parola LDAP sau Active Directory."
   }
 }

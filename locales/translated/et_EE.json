@@ -36,7 +36,8 @@
     "deleted": "Kustutatud",
     "deleteFailed": "Kustutamine ebaõnnestus",
     "loadFailed": "LDAP-kataloogide laadimine ebaõnnestus",
-    "cancel": "Tühista"
+    "cancel": "Tühista",
+    "sectionRoles": "Rollid"
   },
   "fields": {
     "host": "LDAP peremeesmasin",
@@ -55,9 +56,14 @@
     "usernameAttr": "Kasutajanime atribuut",
     "groupSearchBase": "Rühma otsingu baas",
     "adminGroup": "Administraatorite rühm",
+    "defaultRoles": "Vaikimisi rollid",
+    "defaultRolesDesc": "Termixi rollid, mida iga selle kataloogi kasutaja sisselogimisel saab. Eralda nimed koma abil.",
+    "roleMap": "Grupi rollid",
+    "roleMapDesc": "Üks rida rühma:roll. Rühm võib olla selle cn või täielik DN. Kasutajad saavad rolli sisselogimisel, kui nad on rühmas, ja kaotavad selle, kui nad lahkuvad. Nõuab rühma otsingu baasi.",
     "allowedUsers": "Lubatud kasutajad"
   },
   "plugin": {
-    "name": "LDAP"
+    "name": "LDAP",
+    "description": "Logi sisse oma LDAP või Active Directory kasutajanime ja parooliga."
   }
 }

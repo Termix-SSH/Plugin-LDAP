@@ -36,7 +36,8 @@
     "deleted": "Odstránené",
     "deleteFailed": "Odstránenie zlyhalo",
     "loadFailed": "Načítanie LDAP adresárov zlyhalo",
-    "cancel": "Zrušiť"
+    "cancel": "Zrušiť",
+    "sectionRoles": "Roly"
   },
   "fields": {
     "host": "LDAP hostiteľ",
@@ -55,9 +56,14 @@
     "usernameAttr": "Atribút používateľského mena",
     "groupSearchBase": "Základ vyhľadávania skupín",
     "adminGroup": "Skupina administrátorov",
+    "defaultRoles": "Predvolené role",
+    "defaultRolesDesc": "Termix role, ktoré získa každý používateľ z tohto adresára pri prihlásení. Mená oddelte čiarkami.",
+    "roleMap": "Roly skupín",
+    "roleMapDesc": "Jedna skupina:rola na riadok. Skupina môže byť jej cn alebo úplné DN. Používatelia získajú rolu pri prihlásení, kým sú v skupine, a stratia ju, ak ju opustia. Vyžaduje sa základ pre vyhľadávanie skupín.",
     "allowedUsers": "Povolení používatelia"
   },
   "plugin": {
-    "name": "LDAP"
+    "name": "LDAP",
+    "description": "Prihláste sa pomocou svojho používateľského mena a hesla z LDAP alebo Active Directory."
   }
 }

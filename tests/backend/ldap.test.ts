@@ -434,3 +434,34 @@ describe("normalizeDn", () => {
     );
   });
 });
+
+describe("LDAP roles", () => {
+  it("gives default roles and roles mapped from the user's groups", async () => {
+    const { s, id } = await withDirectory();
+    await s.request("PUT", `/providers/${id}`, {
+      body: {
+        config: {
+          defaultRoles: "support",
+          roleMap: "admins:ops\nCN=Devs, OU=Groups:dev",
+        },
+      },
+    });
+    directory.adminDns = ["uid=bob,ou=people"];
+    const identity = await verify(s, String(id), {
+      username: "bob",
+      password: "hunter2",
+    });
+    expect(identity).toMatchObject({
+      roles: { desired: ["support", "ops"], managed: ["ops", "dev"] },
+    });
+  });
+
+  it("sends no roles when none are set up", async () => {
+    const { s, id } = await withDirectory();
+    const identity = await verify(s, String(id), {
+      username: "bob",
+      password: "hunter2",
+    });
+    expect(identity).not.toHaveProperty("roles");
+  });
+});

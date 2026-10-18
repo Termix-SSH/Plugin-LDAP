@@ -36,7 +36,8 @@
     "deleted": "已删除",
     "deleteFailed": "删除失败",
     "loadFailed": "加载 LDAP 目录失败",
-    "cancel": "取消"
+    "cancel": "取消",
+    "sectionRoles": "角色"
   },
   "fields": {
     "host": "LDAP 主机",
@@ -55,9 +56,14 @@
     "usernameAttr": "用户名属性",
     "groupSearchBase": "组搜索基准",
     "adminGroup": "管理员组",
+    "defaultRoles": "默认角色",
+    "defaultRolesDesc": "来自此目录的用户登录时获得的 Termix 角色。角色名称之间用逗号分隔。",
+    "roleMap": "组角色",
+    "roleMapDesc": "每行一个 组:角色。组可以是其 cn 或完整 DN。用户在组内时登录会获得该角色，离开组后则失去该角色。需要设置组搜索基准。",
     "allowedUsers": "允许的用户"
   },
   "plugin": {
-    "name": "LDAP"
+    "name": "LDAP",
+    "description": "使用 LDAP 或 Active Directory 用户名和密码登录。"
   }
 }

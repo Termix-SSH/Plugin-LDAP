@@ -36,7 +36,8 @@
     "deleted": "削除しました",
     "deleteFailed": "削除に失敗しました",
     "loadFailed": "LDAP ディレクトリの読み込みに失敗しました",
-    "cancel": "キャンセル"
+    "cancel": "キャンセル",
+    "sectionRoles": "ロール"
   },
   "fields": {
     "host": "LDAP ホスト",
@@ -55,9 +56,14 @@
     "usernameAttr": "ユーザー名属性",
     "groupSearchBase": "グループ検索ベース",
     "adminGroup": "管理者グループ",
+    "defaultRoles": "デフォルトのロール",
+    "defaultRolesDesc": "このディレクトリからサインインするすべてのユーザーに Termix で割り当てられるロール。名前はカンマで区切ってください。",
+    "roleMap": "グループの役割",
+    "roleMapDesc": "1行に1つのグループ:ロール。グループはcnまたは完全なDNで指定できます。ユーザーはサインイン時にグループに所属している間はそのロールを取得し、グループから離脱するとロールを失います。グループ検索ベースが必要です。",
     "allowedUsers": "許可されたユーザー"
   },
   "plugin": {
-    "name": "LDAP"
+    "name": "LDAP",
+    "description": "LDAP または Active Directory のユーザー名とパスワードでサインインします。"
   }
 }

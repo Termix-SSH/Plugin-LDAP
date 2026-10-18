@@ -36,7 +36,8 @@
     "deleted": "Slettet",
     "deleteFailed": "Kunne ikke slette",
     "loadFailed": "Kunne ikke laste LDAP-kataloger",
-    "cancel": "Avbryt"
+    "cancel": "Avbryt",
+    "sectionRoles": "Roller"
   },
   "fields": {
     "host": "LDAP-tjener",
@@ -55,9 +56,14 @@
     "usernameAttr": "Attributt for brukernavn",
     "groupSearchBase": "Søkebase for grupper",
     "adminGroup": "Administratorgruppe",
+    "defaultRoles": "Standardroller",
+    "defaultRolesDesc": "Termix-roller som alle brukere fra denne katalogen får når de logger inn. Skill navn med komma.",
+    "roleMap": "Grupperoller",
+    "roleMapDesc": "Én gruppe:rolle per linje. Gruppen kan være cn eller full DN. Brukere får rollen ved pålogging mens de er i gruppen, og mister den når de forlater den. Krever en gruppesøkebase.",
     "allowedUsers": "Tillatte brukere"
   },
   "plugin": {
-    "name": "LDAP"
+    "name": "LDAP",
+    "description": "Logg inn med brukernavnet og passordet ditt fra LDAP eller Active Directory."
   }
 }

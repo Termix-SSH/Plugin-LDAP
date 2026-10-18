@@ -36,7 +36,8 @@
     "deleted": "Eliminado",
     "deleteFailed": "Falha ao eliminar",
     "loadFailed": "Falha ao carregar os diretórios LDAP",
-    "cancel": "Cancelar"
+    "cancel": "Cancelar",
+    "sectionRoles": "Funções"
   },
   "fields": {
     "host": "Servidor LDAP",
@@ -55,9 +56,14 @@
     "usernameAttr": "Atributo de Nome de Utilizador",
     "groupSearchBase": "Base de Pesquisa de Grupos",
     "adminGroup": "Grupo de Administradores",
+    "defaultRoles": "Funções predefinidas",
+    "defaultRolesDesc": "Funções do Termix que cada utilizador deste diretório recebe ao iniciar sessão. Separe os nomes com vírgulas.",
+    "roleMap": "Papéis de grupo",
+    "roleMapDesc": "Um grupo:função por linha. O grupo pode ser o seu cn ou DN completo. Os utilizadores recebem a função ao iniciar sessão enquanto pertencem ao grupo e perdem-na quando saem. Necessita de uma base de pesquisa de grupos.",
     "allowedUsers": "Utilizadores Permitidos"
   },
   "plugin": {
-    "name": "LDAP"
+    "name": "LDAP",
+    "description": "Inicie sessão com o seu nome de utilizador e palavra-passe do LDAP ou Active Directory."
   }
 }

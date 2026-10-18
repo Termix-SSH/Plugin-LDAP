@@ -28,6 +28,8 @@ type Fields = {
   usernameAttribute: string;
   groupSearchBase: string;
   adminGroup: string;
+  defaultRoles: string;
+  roleMap: string;
   allowedUsers: string;
 };
 
@@ -44,6 +46,8 @@ const EMPTY_FIELDS: Fields = {
   usernameAttribute: "uid",
   groupSearchBase: "",
   adminGroup: "",
+  defaultRoles: "",
+  roleMap: "",
   allowedUsers: "",
 };
 
@@ -150,6 +154,8 @@ function ProviderDialog({
       usernameAttribute: fields.usernameAttribute.trim() || "uid",
       groupSearchBase: fields.groupSearchBase.trim(),
       adminGroup: fields.adminGroup.trim(),
+      defaultRoles: fields.defaultRoles.trim(),
+      roleMap: fields.roleMap.trim(),
       allowedUsers: fields.allowedUsers.trim(),
     };
     if (fields.bindPassword) config.bindPassword = fields.bindPassword;
@@ -171,7 +177,7 @@ function ProviderDialog({
   const text = (
     key: Exclude<
       keyof Fields,
-      "useTLS" | "tlsSkipVerify" | "tlsCaCert" | "bindPassword"
+      "useTLS" | "tlsSkipVerify" | "tlsCaCert" | "bindPassword" | "roleMap"
     >,
     label: string,
     placeholder: string,
@@ -321,6 +327,30 @@ function ProviderDialog({
             t("fields.allowedUsers"),
             "user1,user2,@domain.com",
           )}
+        </Section>
+
+        <Section title={t("providers.sectionRoles")}>
+          <Field
+            label={t("fields.defaultRoles")}
+            hint={t("fields.defaultRolesDesc")}
+          >
+            <Input
+              value={fields.defaultRoles}
+              onChange={(e) => set("defaultRoles")(e.target.value)}
+              placeholder="support, readonly"
+            />
+          </Field>
+          <Field label={t("fields.roleMap")} hint={t("fields.roleMapDesc")}>
+            <Textarea
+              value={fields.roleMap}
+              onChange={(e) => set("roleMap")(e.target.value)}
+              placeholder={
+                "developers:dev\ncn=ops,ou=groups,dc=example,dc=com:ops"
+              }
+              rows={3}
+              className="font-mono text-xs"
+            />
+          </Field>
         </Section>
       </div>
 

@@ -36,7 +36,8 @@
     "deleted": "Törölve",
     "deleteFailed": "A törlés sikertelen",
     "loadFailed": "Az LDAP-könyvtárak betöltése sikertelen",
-    "cancel": "Mégse"
+    "cancel": "Mégse",
+    "sectionRoles": "Szerepkörök"
   },
   "fields": {
     "host": "LDAP hoszt",
@@ -55,9 +56,14 @@
     "usernameAttr": "Felhasználónév attribútum",
     "groupSearchBase": "Csoport-keresés alapja",
     "adminGroup": "Adminisztrátor csoport",
+    "defaultRoles": "Alapértelmezett szerepkörök",
+    "defaultRolesDesc": "A Termix-szerepkörök, amelyeket a felhasználók automatikusan megkapnak belépéskor, ha ebből az könyvtárból származnak. A neveket vesszővel válaszd el.",
+    "roleMap": "Csoport szerepkörök",
+    "roleMapDesc": "Egy csoport:szerep soronként. A csoport lehet a cn vagy a teljes DN. A felhasználók bejelentkezéskor kapják meg a szerepet, amíg a csoport tagjai, és elveszítik, amikor kilépnek. Szükséges egy csoportkeresési alap.",
     "allowedUsers": "Engedélyezett felhasználók"
   },
   "plugin": {
-    "name": "LDAP"
+    "name": "LDAP",
+    "description": "Jelentkezzen be LDAP- vagy Active Directory-felhasználónevével és jelszavával."
   }
 }

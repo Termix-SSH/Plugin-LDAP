@@ -36,7 +36,8 @@
     "deleted": "Usunięto",
     "deleteFailed": "Nie udało się usunąć",
     "loadFailed": "Nie udało się załadować katalogów LDAP",
-    "cancel": "Anuluj"
+    "cancel": "Anuluj",
+    "sectionRoles": "Role"
   },
   "fields": {
     "host": "Host LDAP",
@@ -55,9 +56,14 @@
     "usernameAttr": "Atrybut nazwy użytkownika",
     "groupSearchBase": "Baza wyszukiwania grup",
     "adminGroup": "Grupa administratorów",
+    "defaultRoles": "Domyślne role",
+    "defaultRolesDesc": "Role Termix, które każdy użytkownik z tego katalogu otrzymuje po zalogowaniu. Oddziel nazwy przecinkami.",
+    "roleMap": "Role grup",
+    "roleMapDesc": "Jedna para grupa:rola na linię. Grupa może być podana jako jej cn lub pełny DN. Użytkownicy otrzymują rolę podczas logowania, gdy znajdują się w grupie, i tracą ją po wyjściu z niej. Wymaga bazy wyszukiwania grup.",
     "allowedUsers": "Dozwoleni użytkownicy"
   },
   "plugin": {
-    "name": "LDAP"
+    "name": "LDAP",
+    "description": "Zaloguj się, używając nazwy użytkownika i hasła z LDAP lub Active Directory."
   }
 }

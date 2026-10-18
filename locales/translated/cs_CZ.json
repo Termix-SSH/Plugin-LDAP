@@ -36,7 +36,8 @@
     "deleted": "Smazáno",
     "deleteFailed": "Smazání se nezdařilo",
     "loadFailed": "Načtení adresářů LDAP se nezdařilo",
-    "cancel": "Zrušit"
+    "cancel": "Zrušit",
+    "sectionRoles": "Role"
   },
   "fields": {
     "host": "LDAP hostitel",
@@ -55,9 +56,14 @@
     "usernameAttr": "Atribut uživatelského jména",
     "groupSearchBase": "Základ pro vyhledávání skupin",
     "adminGroup": "Skupina administrátorů",
+    "defaultRoles": "Výchozí role",
+    "defaultRolesDesc": "Role v Termixu, které získá každý uživatel z tohoto adresáře při přihlášení. Oddělte názvy čárkami.",
+    "roleMap": "Role skupin",
+    "roleMapDesc": "Jedna skupina:role na řádek. Skupina může být její cn nebo plné DN. Uživatelé získají roli při přihlášení, pokud jsou ve skupině, a ztratí ji, jakmile ji opustí. Vyžaduje základnu pro vyhledávání skupin.",
     "allowedUsers": "Povolení uživatelé"
   },
   "plugin": {
-    "name": "LDAP"
+    "name": "LDAP",
+    "description": "Přihlaste se pomocí svého uživatelského jména a hesla z LDAP nebo Active Directory."
   }
 }

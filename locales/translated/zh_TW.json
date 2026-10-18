@@ -36,7 +36,8 @@
     "deleted": "已刪除",
     "deleteFailed": "刪除失敗",
     "loadFailed": "載入 LDAP 目錄失敗",
-    "cancel": "取消"
+    "cancel": "取消",
+    "sectionRoles": "角色"
   },
   "fields": {
     "host": "LDAP 主機",
@@ -55,9 +56,14 @@
     "usernameAttr": "使用者名稱屬性",
     "groupSearchBase": "群組搜尋基底",
     "adminGroup": "管理員群組",
+    "defaultRoles": "預設角色",
+    "defaultRolesDesc": "來自此目錄的使用者在登入時獲得的 Termix 角色。請以逗號分隔名稱。",
+    "roleMap": "群組角色",
+    "roleMapDesc": "每行一個 群組:角色。群組可以是其 cn 或完整 DN。使用者在群組中時，於登入時獲得該角色；離開群組後則失去該角色。需要設定群組搜尋基底。",
     "allowedUsers": "允許的使用者"
   },
   "plugin": {
-    "name": "LDAP"
+    "name": "LDAP",
+    "description": "使用 LDAP 或 Active Directory 使用者名稱和密碼登入。"
   }
 }

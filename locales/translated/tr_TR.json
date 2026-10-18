@@ -36,7 +36,8 @@
     "deleted": "Silindi",
     "deleteFailed": "Silme başarısız oldu",
     "loadFailed": "LDAP dizinleri yüklenemedi",
-    "cancel": "İptal"
+    "cancel": "İptal",
+    "sectionRoles": "Roller"
   },
   "fields": {
     "host": "LDAP Sunucusu",
@@ -55,9 +56,14 @@
     "usernameAttr": "Kullanıcı Adı Özelliği",
     "groupSearchBase": "Grup Arama Temeli",
     "adminGroup": "Yönetici Grubu",
+    "defaultRoles": "Varsayılan roller",
+    "defaultRolesDesc": "Bu dizinden giriş yapan her kullanıcının Termix'te aldığı roller. İsimleri virgülle ayırın.",
+    "roleMap": "Grup rolleri",
+    "roleMapDesc": "Her satırda bir grup:rol. Grup, cn veya tam DN olabilir. Kullanıcılar grupta olduklarında girişte rolü alır, gruptan çıkınca kaybeder. Bir grup arama tabanı gerektirir.",
     "allowedUsers": "İzin Verilen Kullanıcılar"
   },
   "plugin": {
-    "name": "LDAP"
+    "name": "LDAP",
+    "description": "LDAP veya Active Directory kullanıcı adınız ve şifrenizle giriş yapın."
   }
 }

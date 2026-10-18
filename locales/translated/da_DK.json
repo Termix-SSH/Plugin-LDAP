@@ -36,7 +36,8 @@
     "deleted": "Slettet",
     "deleteFailed": "Kunne ikke slette",
     "loadFailed": "Kunne ikke indlæse LDAP-kataloger",
-    "cancel": "Annuller"
+    "cancel": "Annuller",
+    "sectionRoles": "Rolle"
   },
   "fields": {
     "host": "LDAP-vært",
@@ -55,9 +56,14 @@
     "usernameAttr": "Brugernavnsattribut",
     "groupSearchBase": "Gruppe-søgebase",
     "adminGroup": "Administratorgruppe",
+    "defaultRoles": "Standardroller",
+    "defaultRolesDesc": "Termix-roller, som alle brugere fra denne mappe får, når de logger ind. Adskil navne med kommaer.",
+    "roleMap": "Grupperoller",
+    "roleMapDesc": "Én gruppe:rolle pr. linje. Gruppen kan være dens cn eller fulde DN. Brugere får rollen ved login, mens de er i gruppen, og mister den, når de forlader den. Kræver en gruppesøgebase.",
     "allowedUsers": "Tilladte brugere"
   },
   "plugin": {
-    "name": "LDAP"
+    "name": "LDAP",
+    "description": "Log ind med dit LDAP- eller Active Directory-brugernavn og adgangskode."
   }
 }

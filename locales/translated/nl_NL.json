@@ -36,7 +36,8 @@
     "deleted": "Verwijderd",
     "deleteFailed": "Verwijderen mislukt",
     "loadFailed": "Laden van LDAP-mappen mislukt",
-    "cancel": "Annuleren"
+    "cancel": "Annuleren",
+    "sectionRoles": "Rollen"
   },
   "fields": {
     "host": "LDAP-host",
@@ -55,9 +56,14 @@
     "usernameAttr": "Attribuut voor gebruikersnaam",
     "groupSearchBase": "Zoekbasis voor groepen",
     "adminGroup": "Beheergroep",
+    "defaultRoles": "Standaardrollen",
+    "defaultRolesDesc": "De Termix-rollen die elke gebruiker uit deze directory krijgt bij het inloggen. Scheid namen door komma’s.",
+    "roleMap": "Groepsrollen",
+    "roleMapDesc": "Eén groep:rol per regel. De groep kan de cn of volledige DN zijn. Gebruikers krijgen de rol bij het inloggen zolang ze lid zijn van de groep, en verliezen deze zodra ze de groep verlaten. Vereist een groepzoekbasis.",
     "allowedUsers": "Toegestane gebruikers"
   },
   "plugin": {
-    "name": "LDAP"
+    "name": "LDAP",
+    "description": "Log in met je LDAP- of Active Directory-gebruikersnaam en wachtwoord."
   }
 }

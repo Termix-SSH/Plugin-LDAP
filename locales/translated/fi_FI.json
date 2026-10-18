@@ -36,7 +36,8 @@
     "deleted": "Poistettu",
     "deleteFailed": "Poisto epäonnistui",
     "loadFailed": "LDAP-hakemistojen lataaminen epäonnistui",
-    "cancel": "Peruuta"
+    "cancel": "Peruuta",
+    "sectionRoles": "Roolit"
   },
   "fields": {
     "host": "LDAP-palvelin",
@@ -55,9 +56,14 @@
     "usernameAttr": "Käyttäjätunnuksen attribuutti",
     "groupSearchBase": "Ryhmien hakujuuri",
     "adminGroup": "Ylläpitäjäryhmä",
+    "defaultRoles": "Oletusroolit",
+    "defaultRolesDesc": "Termix-roolit, jotka jokainen tämän hakemiston käyttäjä saa kirjautuessaan. Erota nimet pilkuilla.",
+    "roleMap": "Ryhmäroolit",
+    "roleMapDesc": "Yksi ryhmä:rooli per rivi. Ryhmä voi olla sen cn tai täydellinen DN. Käyttäjät saavat roolin kirjautuessaan, kun he ovat ryhmässä, ja menettävät sen poistuessaan ryhmästä. Vaatii ryhmähakemisen perustan.",
     "allowedUsers": "Sallitut käyttäjät"
   },
   "plugin": {
-    "name": "LDAP"
+    "name": "LDAP",
+    "description": "Kirjaudu sisään LDAP- tai Active Directory-käyttäjätunnuksella ja salasanalla."
   }
 }
