@@ -288,6 +288,7 @@ function ProviderDialog({
               }
             >
               <PasswordInput
+                className="h-8 pr-8 text-xs"
                 value={fields.bindPassword}
                 onChange={(e) => set("bindPassword")(e.target.value)}
               />
