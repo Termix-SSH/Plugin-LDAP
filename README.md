@@ -8,7 +8,7 @@
 
 <!-- VIDEO:START -->
 
-<a href="https://www.youtube.com/watch?v=i7zpAXs2mAk"><img src="https://img.shields.io/badge/Watch_the_demo-f59145?style=for-the-badge&logo=youtube&logoColor=white" alt="Watch the demo on YouTube" /></a>
+<a href="https://www.youtube.com/watch?v=YHOL3xkwOLA"><img src="https://img.shields.io/badge/Watch_the_demo-f59145?style=for-the-badge&logo=youtube&logoColor=white" alt="Watch the demo on YouTube" /></a>
 
 <!-- VIDEO:END -->
 
