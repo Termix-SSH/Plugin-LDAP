@@ -1,0 +1,23 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Termix-SSH/Termix/main/scripts/authz/authz.schema.json",
+  "seed": [],
+  "routes": {
+    "GET /plugin-api/ldap/providers": {
+      "access": "user",
+      "permission": "ldap.manage"
+    },
+    "POST /plugin-api/ldap/providers": {
+      "access": "user",
+      "permission": "ldap.manage"
+    },
+    "DELETE /plugin-api/ldap/providers/:id": {
+      "access": "user",
+      "permission": "ldap.manage",
+      "destructive": true
+    },
+    "PUT /plugin-api/ldap/providers/:id": {
+      "access": "user",
+      "permission": "ldap.manage"
+    }
+  }
+}
