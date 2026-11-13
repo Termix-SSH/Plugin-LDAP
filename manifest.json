@@ -1,7 +1,7 @@
 {
   "id": "ldap",
   "name": "LDAP",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Sign in with your LDAP or Active Directory username and password.",
   "author": {
     "name": "Termix"
@@ -19,15 +19,16 @@
     "Make members of an admin group Termix admins"
   ],
   "engine": {
-    "termix": ">=26.10.0",
-    "api": "^1.2"
+    "termix": ">=26.11.2-0",
+    "api": "^2.0.0"
   },
   "capabilities": [
     "db:own",
     "secrets:own",
     "network:serve",
     "auth:provide",
-    "ui:surface"
+    "ui:surface",
+    "network:sockets"
   ],
   "contributes": {
     "auth": {
