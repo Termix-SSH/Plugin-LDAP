@@ -137,7 +137,8 @@ export function createLdapLogin(ctx: PluginContext, store: ProviderStore) {
   ): Promise<PluginVerifiedIdentity> {
     const body = request.body ?? {};
     const providerId = Number(instanceId ?? body.providerId);
-    const username = typeof body.username === "string" ? body.username : "";
+    const username =
+      typeof body.username === "string" ? body.username.trim() : "";
     const password = typeof body.password === "string" ? body.password : "";
 
     if (!Number.isInteger(providerId) || !username || !password) {

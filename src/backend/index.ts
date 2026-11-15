@@ -16,6 +16,21 @@ export async function activate(ctx: PluginContext) {
     icon: "server",
     kind: "form",
     external: true,
+    // Termix 26.11.2 draws this form itself, one per directory.
+    fields: [
+      {
+        name: "username",
+        type: "text",
+        labelKey: "username",
+        autocomplete: "username",
+      },
+      {
+        name: "password",
+        type: "password",
+        labelKey: "password",
+        autocomplete: "current-password",
+      },
+    ],
     describe: async () =>
       (await store.listRows()).map((row) => ({
         id: String(row.id),
