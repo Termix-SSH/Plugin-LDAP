@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "Вход чрез LDAP",
-  "loginWithProvider": "Вход чрез {{name}}",
   "loading": "Зареждане...",
-  "requiredField": "Това поле е задължително",
   "username": "LDAP потребителско име",
   "password": "LDAP парола",
-  "signIn": "Вход",
   "permissions": {
     "manage": {
       "title": "Управление на LDAP директории",

@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "Se connecter avec LDAP",
-  "loginWithProvider": "Se connecter avec {{name}}",
   "loading": "Chargement...",
-  "requiredField": "Ce champ est obligatoire",
   "username": "Nom d'utilisateur LDAP",
   "password": "Mot de passe LDAP",
-  "signIn": "Se connecter",
   "permissions": {
     "manage": {
       "title": "Gérer les annuaires LDAP",

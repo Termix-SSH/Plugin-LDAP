@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "Prisijungti su LDAP",
-  "loginWithProvider": "Prisijungti su {{name}}",
   "loading": "Įkeliama...",
-  "requiredField": "Šis laukas yra privalomas",
   "username": "LDAP vartotojo vardas",
   "password": "LDAP slaptažodis",
-  "signIn": "Prisijungti",
   "permissions": {
     "manage": {
       "title": "Tvarkyti LDAP katalogus",

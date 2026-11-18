@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "Kirjaudu sisään LDAP:lla",
-  "loginWithProvider": "Kirjaudu sisään palvelulla {{name}}",
   "loading": "Ladataan...",
-  "requiredField": "Tämä kenttä on pakollinen",
   "username": "LDAP-käyttäjätunnus",
   "password": "LDAP-salasana",
-  "signIn": "Kirjaudu sisään",
   "permissions": {
     "manage": {
       "title": "Hallitse LDAP-hakemistoja",

@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "Zaloguj się przez LDAP",
-  "loginWithProvider": "Zaloguj się przez {{name}}",
   "loading": "Ładowanie...",
-  "requiredField": "To pole jest wymagane",
   "username": "Nazwa użytkownika LDAP",
   "password": "Hasło LDAP",
-  "signIn": "Zaloguj się",
   "permissions": {
     "manage": {
       "title": "Zarządzaj katalogami LDAP",

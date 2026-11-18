@@ -259,6 +259,31 @@ describe("LDAP sign-in", () => {
     ]);
   });
 
+  it("tells the login screen which fields to draw", async () => {
+    const { s } = await withDirectory();
+    expect(s.mock.auth.loginMethods[0].fields).toEqual([
+      {
+        name: "username",
+        type: "text",
+        labelKey: "username",
+        autocomplete: "username",
+      },
+      {
+        name: "password",
+        type: "password",
+        labelKey: "password",
+        autocomplete: "current-password",
+      },
+    ]);
+  });
+
+  it("trims the username the person typed", async () => {
+    const { s, id } = await withDirectory();
+    await expect(
+      verify(s, String(id), { username: " bob ", password: "hunter2" }),
+    ).resolves.toMatchObject({ subject: "bob" });
+  });
+
   it("needs a directory, a username and a password", async () => {
     const { s } = await withDirectory();
     await expect(

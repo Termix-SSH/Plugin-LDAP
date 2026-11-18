@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "Đăng nhập bằng LDAP",
-  "loginWithProvider": "Đăng nhập bằng {{name}}",
   "loading": "Đang tải...",
-  "requiredField": "Trường này là bắt buộc",
   "username": "Tên người dùng LDAP",
   "password": "Mật khẩu LDAP",
-  "signIn": "Đăng nhập",
   "permissions": {
     "manage": {
       "title": "Quản lý danh mục LDAP",

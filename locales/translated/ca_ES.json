@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "Inicia sessió amb LDAP",
-  "loginWithProvider": "Inicia sessió amb {{name}}",
   "loading": "S'està carregant...",
-  "requiredField": "Aquest camp és obligatori",
   "username": "Nom d'usuari LDAP",
   "password": "Contrasenya LDAP",
-  "signIn": "Inicia sessió",
   "permissions": {
     "manage": {
       "title": "Gestiona els directoris LDAP",

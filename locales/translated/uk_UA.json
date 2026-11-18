@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "Увійти через LDAP",
-  "loginWithProvider": "Увійти через {{name}}",
   "loading": "Завантаження...",
-  "requiredField": "Це поле є обов'язковим",
   "username": "Ім'я користувача LDAP",
   "password": "Пароль LDAP",
-  "signIn": "Увійти",
   "permissions": {
     "manage": {
       "title": "Керування каталогами LDAP",

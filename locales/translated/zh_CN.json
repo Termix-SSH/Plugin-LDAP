@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "使用 LDAP 登录",
-  "loginWithProvider": "使用 {{name}} 登录",
   "loading": "加载中...",
-  "requiredField": "此字段为必填项",
   "username": "LDAP 用户名",
   "password": "LDAP 密码",
-  "signIn": "登录",
   "permissions": {
     "manage": {
       "title": "管理 LDAP 目录",

@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "Entrar com LDAP",
-  "loginWithProvider": "Entrar com {{name}}",
   "loading": "Carregando...",
-  "requiredField": "Este campo é obrigatório",
   "username": "Nome de usuário LDAP",
   "password": "Senha LDAP",
-  "signIn": "Entrar",
   "permissions": {
     "manage": {
       "title": "Gerenciar diretórios LDAP",

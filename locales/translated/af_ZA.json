@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "Teken aan met LDAP",
-  "loginWithProvider": "Teken aan met {{name}}",
   "loading": "Laai tans...",
-  "requiredField": "Hierdie veld is verpligtend",
   "username": "LDAP-gebruikersnaam",
   "password": "LDAP-wagwoord",
-  "signIn": "Teken aan",
   "permissions": {
     "manage": {
       "title": "Bestuur LDAP-gidse",

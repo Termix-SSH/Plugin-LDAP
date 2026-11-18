@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "Sign in with LDAP",
-  "loginWithProvider": "Sign in with {{name}}",
   "loading": "Loading...",
-  "requiredField": "This field is required",
   "username": "LDAP Username",
   "password": "LDAP Password",
-  "signIn": "Sign In",
   "permissions": {
     "manage": {
       "title": "Manage LDAP directories",

@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "تسجيل الدخول باستخدام LDAP",
-  "loginWithProvider": "تسجيل الدخول باستخدام {{name}}",
   "loading": "جارٍ التحميل...",
-  "requiredField": "هذا الحقل مطلوب",
   "username": "اسم مستخدم LDAP",
   "password": "كلمة مرور LDAP",
-  "signIn": "تسجيل الدخول",
   "permissions": {
     "manage": {
       "title": "إدارة دلائل LDAP",

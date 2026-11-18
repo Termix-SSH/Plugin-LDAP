@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "Prihlásiť sa pomocou LDAP",
-  "loginWithProvider": "Prihlásiť sa pomocou {{name}}",
   "loading": "Načítava sa...",
-  "requiredField": "Toto pole je povinné",
   "username": "LDAP používateľské meno",
   "password": "LDAP heslo",
-  "signIn": "Prihlásiť sa",
   "permissions": {
     "manage": {
       "title": "Spravovať LDAP adresáre",

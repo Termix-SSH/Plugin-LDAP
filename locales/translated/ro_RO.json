@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "Autentificare cu LDAP",
-  "loginWithProvider": "Autentificare cu {{name}}",
   "loading": "Se încarcă...",
-  "requiredField": "Acest câmp este obligatoriu",
   "username": "Nume utilizator LDAP",
   "password": "Parolă LDAP",
-  "signIn": "Autentificare",
   "permissions": {
     "manage": {
       "title": "Gestionarea directoarelor LDAP",

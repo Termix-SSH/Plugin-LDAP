@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "Inloggen met LDAP",
-  "loginWithProvider": "Inloggen met {{name}}",
   "loading": "Laden...",
-  "requiredField": "Dit veld is verplicht",
   "username": "LDAP-gebruikersnaam",
   "password": "LDAP-wachtwoord",
-  "signIn": "Inloggen",
   "permissions": {
     "manage": {
       "title": "LDAP-mappen beheren",

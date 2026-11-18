@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "התחבר באמצעות LDAP",
-  "loginWithProvider": "התחבר באמצעות {{name}}",
   "loading": "טוען...",
-  "requiredField": "שדה זה הוא חובה",
   "username": "שם משתמש ב-LDAP",
   "password": "סיסמה ב-LDAP",
-  "signIn": "התחבר",
   "permissions": {
     "manage": {
       "title": "ניהול ספריי LDAP",

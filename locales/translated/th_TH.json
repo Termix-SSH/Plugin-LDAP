@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "เข้าสู่ระบบด้วย LDAP",
-  "loginWithProvider": "เข้าสู่ระบบด้วย {{name}}",
   "loading": "กำลังโหลด...",
-  "requiredField": "ช่องนี้เป็นข้อมูลที่ต้องกรอก",
   "username": "ชื่อผู้ใช้ LDAP",
   "password": "รหัสผ่าน LDAP",
-  "signIn": "เข้าสู่ระบบ",
   "permissions": {
     "manage": {
       "title": "จัดการไดเรกทอรี LDAP",

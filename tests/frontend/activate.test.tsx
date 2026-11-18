@@ -19,45 +19,10 @@ afterEach(async () => {
 });
 
 describe(`${manifest.id} activate`, () => {
-  it("registers the login form and the directory settings", async () => {
+  it("registers only the directory settings; Termix draws the sign in form", async () => {
     rendered = await renderWithApp(plugin, { manifest, locales });
-    expect(rendered.registered.loginMethods()).toEqual(["ldap"]);
+    expect(rendered.registered.loginMethods()).toEqual([]);
     expect(rendered.registered.settingsComponents()).toEqual(["providers"]);
-  });
-
-  it("submits the username and password for the chosen directory", async () => {
-    rendered = await renderWithApp(plugin, { manifest, locales });
-    const submit = vi.fn(async () => {});
-    rendered.renderLoginMethod("ldap", {
-      instances: [{ id: "4", label: "Corp" }],
-      submit,
-    });
-    fireEvent.click(screen.getByText("Sign in with Corp"));
-    fireEvent.change(screen.getByLabelText(locales.username), {
-      target: { value: " bob " },
-    });
-    fireEvent.change(screen.getByLabelText(locales.password), {
-      target: { value: "hunter2" },
-    });
-    fireEvent.click(screen.getByText(locales.signIn));
-    await waitFor(() =>
-      expect(submit).toHaveBeenCalledWith(
-        { username: "bob", password: "hunter2" },
-        "4",
-      ),
-    );
-  });
-
-  it("does not submit an empty form", async () => {
-    rendered = await renderWithApp(plugin, { manifest, locales });
-    const submit = vi.fn(async () => {});
-    rendered.renderLoginMethod("ldap", {
-      instances: [{ id: "4", label: "Corp" }],
-      submit,
-    });
-    fireEvent.click(screen.getByText("Sign in with Corp"));
-    fireEvent.click(screen.getByText(locales.signIn));
-    expect(submit).not.toHaveBeenCalled();
   });
 
   it("lists directories without their bind password", async () => {
@@ -125,6 +90,6 @@ describe(`${manifest.id} activate`, () => {
   it("removes everything on deactivate", async () => {
     const app = await renderWithApp(plugin, { manifest, locales });
     await app.deactivate();
-    expect(app.registered.loginMethods()).toEqual([]);
+    expect(app.registered.settingsComponents()).toEqual([]);
   });
 });

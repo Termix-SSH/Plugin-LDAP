@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "Accedi con LDAP",
-  "loginWithProvider": "Accedi con {{name}}",
   "loading": "Caricamento...",
-  "requiredField": "Questo campo è obbligatorio",
   "username": "Nome utente LDAP",
   "password": "Password LDAP",
-  "signIn": "Accedi",
   "permissions": {
     "manage": {
       "title": "Gestisci directory LDAP",

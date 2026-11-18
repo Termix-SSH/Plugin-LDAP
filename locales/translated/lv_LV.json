@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "Pieteikties ar LDAP",
-  "loginWithProvider": "Pieteikties ar {{name}}",
   "loading": "Ielādē...",
-  "requiredField": "Šis lauks ir obligāts",
   "username": "LDAP lietotājvārds",
   "password": "LDAP parole",
-  "signIn": "Pieteikties",
   "permissions": {
     "manage": {
       "title": "Pārvaldīt LDAP katalogus",

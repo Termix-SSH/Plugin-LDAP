@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "Logi sisse läbi LDAP",
-  "loginWithProvider": "Logi sisse läbi {{name}}",
   "loading": "Laadimine...",
-  "requiredField": "See väli on kohustuslik",
   "username": "LDAP kasutajanimi",
   "password": "LDAP parool",
-  "signIn": "Logi sisse",
   "permissions": {
     "manage": {
       "title": "LDAP-kataloogide haldamine",

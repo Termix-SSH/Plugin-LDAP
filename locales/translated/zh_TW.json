@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "使用 LDAP 登入",
-  "loginWithProvider": "使用 {{name}} 登入",
   "loading": "載入中...",
-  "requiredField": "此欄位為必填",
   "username": "LDAP 使用者名稱",
   "password": "LDAP 密碼",
-  "signIn": "登入",
   "permissions": {
     "manage": {
       "title": "管理 LDAP 目錄",

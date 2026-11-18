@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "Пријава преко LDAP-а",
-  "loginWithProvider": "Пријава преко {{name}}",
   "loading": "Учитавање...",
-  "requiredField": "Ово поље је обавезно",
   "username": "LDAP корисничко име",
   "password": "LDAP лозинка",
-  "signIn": "Пријава",
   "permissions": {
     "manage": {
       "title": "Управљање LDAP директоријумима",

@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "Mit LDAP anmelden",
-  "loginWithProvider": "Mit {{name}} anmelden",
   "loading": "Wird geladen...",
-  "requiredField": "Dieses Feld ist erforderlich",
   "username": "LDAP-Benutzername",
   "password": "LDAP-Passwort",
-  "signIn": "Anmelden",
   "permissions": {
     "manage": {
       "title": "LDAP-Verzeichnisse verwalten",

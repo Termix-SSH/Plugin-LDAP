@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "LDAP でサインイン",
-  "loginWithProvider": "{{name}} でサインイン",
   "loading": "読み込み中...",
-  "requiredField": "このフィールドは必須です",
   "username": "LDAP ユーザー名",
   "password": "LDAP パスワード",
-  "signIn": "サインイン",
   "permissions": {
     "manage": {
       "title": "LDAP ディレクトリの管理",

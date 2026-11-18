@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "Logg inn med LDAP",
-  "loginWithProvider": "Logg inn med {{name}}",
   "loading": "Laster...",
-  "requiredField": "Dette feltet er påkrevd",
   "username": "LDAP-brukernavn",
   "password": "LDAP-passord",
-  "signIn": "Logg inn",
   "permissions": {
     "manage": {
       "title": "Administrer LDAP-kataloger",

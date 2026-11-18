@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "Masuk dengan LDAP",
-  "loginWithProvider": "Masuk dengan {{name}}",
   "loading": "Memuat...",
-  "requiredField": "Bidang ini wajib diisi",
   "username": "Nama Pengguna LDAP",
   "password": "Kata Sandi LDAP",
-  "signIn": "Masuk",
   "permissions": {
     "manage": {
       "title": "Kelola direktori LDAP",

@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "LDAP দিয়ে সাইন ইন করুন",
-  "loginWithProvider": "{{name}} দিয়ে সাইন ইন করুন",
   "loading": "লোড হচ্ছে...",
-  "requiredField": "এই ফিল্ডটি আবশ্যিক",
   "username": "LDAP ব্যবহারকারীর নাম",
   "password": "LDAP পাসওয়ার্ড",
-  "signIn": "সাইন ইন",
   "permissions": {
     "manage": {
       "title": "LDAP ডিরেক্টরি পরিচালনা করুন",

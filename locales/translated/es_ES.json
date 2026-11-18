@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "Iniciar sesión con LDAP",
-  "loginWithProvider": "Iniciar sesión con {{name}}",
   "loading": "Cargando...",
-  "requiredField": "Este campo es obligatorio",
   "username": "Nombre de usuario de LDAP",
   "password": "Contraseña de LDAP",
-  "signIn": "Iniciar sesión",
   "permissions": {
     "manage": {
       "title": "Administrar directorios LDAP",

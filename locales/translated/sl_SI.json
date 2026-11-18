@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "Prijava z LDAP",
-  "loginWithProvider": "Prijava z {{name}}",
   "loading": "Nalaganje...",
-  "requiredField": "To polje je obvezno",
   "username": "LDAP uporabniško ime",
   "password": "LDAP geslo",
-  "signIn": "Prijava",
   "permissions": {
     "manage": {
       "title": "Upravljanje LDAP imenikov",

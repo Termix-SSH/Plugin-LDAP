@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "Bejelentkezés LDAP segítségével",
-  "loginWithProvider": "Bejelentkezés {{name}} segítségével",
   "loading": "Betöltés...",
-  "requiredField": "Ez a mező kötelező",
   "username": "LDAP felhasználónév",
   "password": "LDAP jelszó",
-  "signIn": "Bejelentkezés",
   "permissions": {
     "manage": {
       "title": "LDAP-könyvtárak kezelése",

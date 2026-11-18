@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "Logga in med LDAP",
-  "loginWithProvider": "Logga in med {{name}}",
   "loading": "Laddar...",
-  "requiredField": "Detta fält är obligatoriskt",
   "username": "LDAP-användarnamn",
   "password": "LDAP-lösenord",
-  "signIn": "Logga in",
   "permissions": {
     "manage": {
       "title": "Hantera LDAP-kataloger",

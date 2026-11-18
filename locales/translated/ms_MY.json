@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "Log masuk dengan LDAP",
-  "loginWithProvider": "Log masuk dengan {{name}}",
   "loading": "Memuatkan...",
-  "requiredField": "Medan ini diperlukan",
   "username": "Nama Pengguna LDAP",
   "password": "Kata Laluan LDAP",
-  "signIn": "Log Masuk",
   "permissions": {
     "manage": {
       "title": "Urus direktori LDAP",

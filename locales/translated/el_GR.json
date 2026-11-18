@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "Σύνδεση με LDAP",
-  "loginWithProvider": "Σύνδεση με {{name}}",
   "loading": "Φόρτωση...",
-  "requiredField": "Αυτό το πεδίο είναι υποχρεωτικό",
   "username": "Όνομα χρήστη LDAP",
   "password": "Κωδικός πρόσβασης LDAP",
-  "signIn": "Σύνδεση",
   "permissions": {
     "manage": {
       "title": "Διαχείριση καταλόγων LDAP",

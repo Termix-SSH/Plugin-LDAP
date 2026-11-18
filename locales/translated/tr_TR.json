@@ -1,11 +1,8 @@
 {
   "loginWithLdap": "LDAP ile giriş yap",
-  "loginWithProvider": "{{name}} ile giriş yap",
   "loading": "Yükleniyor...",
-  "requiredField": "Bu alan zorunludur",
   "username": "LDAP Kullanıcı Adı",
   "password": "LDAP Şifresi",
-  "signIn": "Giriş Yap",
   "permissions": {
     "manage": {
       "title": "LDAP dizinlerini yönet",
